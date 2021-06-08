@@ -1,0 +1,185 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "title": "Kirana Pasal",
+      "slug": "kirana-pasal",
+      "image": "/images/category/1.jpg",
+      "sub": [
+        {
+          "id": "50",
+          "title": "Kirana Pasal",
+          "slug": "kirana-pasal",
+          "image": "/images/category/1.jpg"
+        },
+        {
+          "id": "51",
+          "title": "Office Item",
+          "slug": "office-item",
+          "image": "/images/category/7.jpg"
+        },
+        {
+          "id": "52",
+          "title": "Kirana Pasal",
+          "slug": "kirana-pasal",
+          "image": "/images/category/1.jpg"
+        },
+        {
+          "id": "53",
+          "title": "Office Item",
+          "slug": "office-item",
+          "image": "/images/category/7.jpg"
+        },
+        {
+          "id": "54",
+          "title": "Kirana Pasal",
+          "slug": "kirana-pasal",
+          "image": "/images/category/1.jpg"
+        },
+        {
+          "id": "55",
+          "title": "Office Item",
+          "slug": "office-item",
+          "image": "/images/category/7.jpg"
+        },
+        {
+          "id": "56",
+          "title": "Kirana Pasal",
+          "slug": "kirana-pasal",
+          "image": "/images/category/1.jpg"
+        },
+        {
+          "id": "57",
+          "title": "Office Item",
+          "slug": "office-item",
+          "image": "/images/category/7.jpg"
+        },
+        {
+          "id": "58",
+          "title": "Kirana Pasal",
+          "slug": "kirana-pasal",
+          "image": "/images/category/1.jpg"
+        },
+        {
+          "id": "59",
+          "title": "Office Item",
+          "slug": "office-item",
+          "image": "/images/category/7.jpg"
+        }
+      ]
+    },
+    { "id": "2", "title": "Luga Pasal", "slug": "luga-pasal", "image": "/images/category/2.jpg" },
+    {
+      "id": "3",
+      "title": "Office Item",
+      "slug": "office-item",
+      "image": "/images/category/7.jpg"
+    },
+    { "id": "4", "title": "Cosmetics", "slug": "cosmetics", "image": "/images/category/4.jpg" },
+    {
+      "id": "5",
+      "title": "Paper & Stationary",
+      "slug": "paper-&-stationary",
+      "image": "/images/category/5.jpg"
+    },
+    { "id": "6", "title": "Toys & Kids", "slug": "toys-&-kids", "image": "/images/category/6.jpg" },
+    {
+      "id": "7",
+      "title": "Shoes",
+      "slug": "shoes",
+      "image": "/images/category/2.jpg"
+    },
+    { "id": "8", "title": "Bhada Pasal", "slug": "bhada-pasal", "image": "/images/category/8.jpg" },
+    {
+      "id": "9",
+      "title": "Coffee",
+      "slug": "coffee",
+      "image": "/images/category/7.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Music Instrument",
+      "slug": "music-instrument",
+      "image": "/images/category/8.jpg"
+    },
+    {
+      "id": "11",
+      "title": "Books",
+      "slug": "Books",
+      "image": "/images/category/1.jpg"
+    },
+    {
+      "id": "12",
+      "title": "Hardware & Paints",
+      "slug": "hardware-&-paints",
+      "image": "/images/category/2.jpg"
+    },
+    {
+      "id": "13",
+      "title": "Machinery (Teku)",
+      "slug": "machinery",
+      "image": "/images/category/1.jpg"
+    },
+    { "id": "14", "title": "Wishkey", "slug": "wishkey", "image": "/images/category/4.jpg" },
+    {
+      "id": "15",
+      "title": "Pets Food & Item",
+      "slug": "pets-food-&-item",
+      "image": "/images/category/5.jpg"
+    },
+    {
+      "id": "16",
+      "title": "Furniture & Home",
+      "slug": "furniture-&-home",
+      "image": "/images/category/6.jpg"
+    },
+    {
+      "id": "17",
+      "title": "Sports, Gym & Fitness Equipment",
+      "slug": "sports-gym-&-fitness-equipment",
+      "image": "/images/category/7.jpg"
+    },
+    {
+      "id": "18",
+      "title": "TV, Fridge & Home Appliances",
+      "slug": "tv-fridge-home-appliances",
+      "image": "/images/category/1.jpg"
+    },
+    {
+      "id": "19",
+      "title": "Vegetables & Fruits",
+      "slug": "vegetables-&-fruits",
+      "image": "/images/category/2.jpg"
+    },
+    {
+      "id": "20",
+      "title": "Pharmacy & Health Item",
+      "slug": "pharmacy-&-health-item",
+      "image": "/images/category/3.jpg"
+    },
+    {
+      "id": "21",
+      "title": "Electronics & Mobile",
+      "slug": "electronics-&-mobile",
+      "image": "/images/category/3.jpg"
+    },
+    {
+      "id": "22",
+      "title": "Computers & Printers",
+      "slug": "computers-&-printers",
+      "image": "/images/category/8.jpg"
+    },
+    {
+      "id": "23",
+      "title": "Plastic, Tapes & Packaging",
+      "slug": "plastic-tapes-packaging",
+      "image": "/images/category/2.jpg"
+    },
+    {
+      "id": "24",
+      "title": "Business Support & Services",
+      "slug": "business-support-services",
+      "image": "/images/category/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "categories": [
+    { "id": "1", "title": "Mobile", "url": "/mobile", "image": "/images/category/1.jpg" },
+    { "id": "2", "title": "Camera", "url": "/mobile", "image": "/images/category/2.jpg" },
+    { "id": "3", "title": "Watch", "url": "/mobile", "image": "/images/category/3.jpg" },
+    { "id": "4", "title": "Laptop", "url": "/mobile", "image": "/images/category/4.jpg" },
+    { "id": "5", "title": "Tv", "url": "/mobile", "image": "/images/category/5.jpg" },
+    { "id": "6", "title": "Desktop", "url": "/mobile", "image": "/images/category/6.jpg" },
+    { "id": "7", "title": "Bulb", "url": "/mobile", "image": "/images/category/7.jpg" },
+    { "id": "8", "title": "Mobile", "url": "/mobile", "image": "/images/category/8.jpg" },
+    { "id": "9", "title": "Mobile", "url": "/mobile", "image": "/images/category/2.jpg" },
+    { "id": "10", "title": "Mobile", "url": "/mobile", "image": "/images/category/1.jpg" }
+  ]
+}

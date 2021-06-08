@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .opensubmenu,
+  .menu-open {
+    @apply !block;
+  }
+
+  .nav-sticky {
+    @apply fixed top-0 w-full z-50;
+  }
+  .btn {
+    @apply flex items-center justify-center flex-shrink-0 p-4  tracking-wider w-auto uppercase rounded shadow-md outline-none ease-in-out focus:outline-none text-white bg-gray-900 hover:bg-gray-900 h-11;
+  }
+
+  .form {
+    @apply w-full ring-2 ring-gray-300 px-4 py-2 focus:outline-none focus:ring-2;
+  }
+
+  .bhotahiti-sub-menu {
+    @apply absolute hidden w-full top-full left-0 ml-4 bg-main-gray z-40 transition-all ease-in-out duration-300 delay-200;
+  }
+
+  .category-menu .mega-menu {
+    @apply left-full top-0;
+  }
+
+  .primary-menu .mega-menu {
+    @apply left-0 top-full;
+  }
+
+  .menu-dropdown,
+  .menu-item-has-children a {
+    @apply flex items-center justify-between px-3 py-2 text-black text-sm  font-normal capitalize tracking-wide space-x-4;
+  }
+
+  .category-menu .menu-dropdown,
+  .category-menu .menu-item-has-children a {
+    @apply hover:bg-main-blue  hover:text-white;
+  }
+
+  .menu-item-has-children:hover .mega-menu {
+    @apply flex;
+  }
+
+  .shop-category:hover .category-menu,
+  .dropdown:hover .sub-menu,
+  .sub-dropdown:hover .category--sub-menu,
+  .sub--drop-down:hover .sub--category-menu {
+    @apply block;
+  }
+
+  .sub-menu a,
+  .primary-menu .mega-menu a {
+    @apply hover:text-main-red;
+  }
+
+  .primary-menu .icon,
+  #sideBarMenu .icon {
+    @apply transform rotate-90;
+  }
+
+  .products:hover ul.action-icons {
+    @apply opacity-100  transform -translate-y-full;
+  }
+
+  .product-container:hover .reveal {
+    @apply block;
+  }
+
+  .product-container:hover .quick-view,
+  .product-container:hover .wishlist {
+    @apply opacity-100;
+  }
+
+  .product-detail-image .small-image .slick-list {
+    @apply h-96 sm:h-98 md:h-64 lg:h-96 xl:h-98 2xl:h-100;
+  }
+
+  .product-detail-image .small-image .slick-current img,
+  .product-detail-image .mobile-image .slick-current img {
+    @apply border border-main-red;
+  }
+
+  .product-detail-image .mobile-image .slick-slide {
+    @apply px-5;
+  }
+}
