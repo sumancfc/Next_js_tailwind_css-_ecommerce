@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .bg-404 {
+    background-color: #efeef0;
+  }
   .opensubmenu,
   .menu-open {
     @apply !block;

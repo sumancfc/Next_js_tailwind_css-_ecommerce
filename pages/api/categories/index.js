@@ -2,7 +2,7 @@ const { categories } = require("./category.json")
 
 export default (req, res) => {
   if (req.method === "GET") {
-    console.log(categories)
+    // console.log(categories)
     res.status(200).json(categories)
   } else {
     res.setHeader("Allow", ["GET"])

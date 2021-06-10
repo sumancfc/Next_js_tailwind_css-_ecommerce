@@ -19,12 +19,15 @@ export default function ProductSlug({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  // console.log(slug)
   const response = await fetch(`${API_URL}/api/products/${slug}`)
 
   const products = await response.json()
 
+  const product = products[0]
+
+  if (!product) return { notFound: true }
+
   return {
-    props: { product: products[0] },
+    props: { product },
   }
 }

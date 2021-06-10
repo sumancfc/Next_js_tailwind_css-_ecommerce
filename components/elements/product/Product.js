@@ -11,7 +11,7 @@ export default function Product({ products }) {
           <div className="product-container">
             <div className="product-image relative overflow-hidden transition duration-300 ease-in">
               <Link href={`/product-details/[slug]`} as={`/product-details/${product.slug}`}>
-                <a className="">
+                <a>
                   <Image
                     src={product.thumbnail ? product.thumbnail : "/images/products/earph.jpg"}
                     width={300}
@@ -19,7 +19,7 @@ export default function Product({ products }) {
                     layout="responsive"
                     quality={100}
                     objectFit="fill"
-                    alt="Product Image"
+                    alt={product.name}
                   />
                 </a>
               </Link>
