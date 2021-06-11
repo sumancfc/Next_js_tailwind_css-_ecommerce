@@ -5,7 +5,6 @@ import { HeartIcon, StarIcon } from "@heroicons/react/outline"
 export default function Product({ products }) {
   return (
     <>
-      {" "}
       {products.map((product) => (
         <div className="col-span-1 shadow-xl" key={product.id}>
           <div className="product-container">
@@ -13,11 +12,12 @@ export default function Product({ products }) {
               <Link href={`/product-details/[slug]`} as={`/product-details/${product.slug}`}>
                 <a>
                   <Image
+                    loading="lazy"
                     src={product.thumbnail ? product.thumbnail : "/images/products/earph.jpg"}
                     width={300}
                     height={300}
                     layout="responsive"
-                    quality={100}
+                    quality={90}
                     objectFit="fill"
                     alt={product.name}
                   />

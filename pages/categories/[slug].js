@@ -7,7 +7,7 @@ export default function CategorySlug({ category }) {
   return (
     <Layout pageTitle={category.title}>
       <div className="w-full relative">
-        <div className="container bg-white my-10 py-6">
+        <div className="bg-white px-8 py-16">
           {category.sub !== undefined ? (
             <div className={`grid grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-1 md:gap-6`}>
               <SubCategories subcategories={category} />

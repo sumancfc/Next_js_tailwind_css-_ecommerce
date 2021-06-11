@@ -48,12 +48,12 @@ export default function HeaderActions({ className }) {
         )}
 
         <div className="hidden md:flex flex-col ml-1">
-          <Link href="/login">
+          <Link href="/account/login">
             <a className=" text-sm font-medium text-main-text hover:text-black transition-all duration-300">
               Login
             </a>
           </Link>
-          <Link href="/register">
+          <Link href="/account/register">
             <a className=" text-sm font-medium text-main-text hover:text-black transition-all duration-300">
               Register
             </a>

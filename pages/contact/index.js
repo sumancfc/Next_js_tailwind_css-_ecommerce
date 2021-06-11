@@ -2,26 +2,9 @@ import { useState } from "react"
 import { toast } from "react-toastify"
 import Layout from "@/components/layout"
 import Button from "@/components/elements/button"
+import { API_URL } from "@/config/index"
 
-const datas = [
-  {
-    icon: "fas fa-map",
-    title: "Address",
-    desc: "Kupandole, Lalitpur, Nepal",
-  },
-  {
-    icon: "fas fa-mobile",
-    title: "Phone",
-    desc: "+977-9861565051",
-  },
-  {
-    icon: "fas fa-envelope-open",
-    title: "Email",
-    desc: "info@bhotahiti.com",
-  },
-]
-
-export default function About() {
+export default function About({ contacts }) {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const [subject, setSubject] = useState("")
@@ -56,15 +39,28 @@ export default function About() {
           <div className="md:w-1/2 md:mr-5 space-y-3">
             <h2 className="mb-5  font-normal text-2xl text-main-red">Contact Us</h2>
 
-            {datas.map((data) => (
+            {contacts.map((contact) => (
               <div
                 className="flex items-center p-6 bg-gray-100 rounded-md shadow-md"
-                key={data.title}
+                key={contact.title}
               >
-                <i className={`${data.icon} text-4xl text-main-blue`}></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-4xl text-main-red"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d={contact.icon}
+                  />
+                </svg>
                 <div className="flex-col  ml-5">
-                  <h4 className="text-lg   leading-snug tracking-tight">{data.title}</h4>
-                  <p className="text-black-400">{data.desc}</p>
+                  <h4 className="text-lg   leading-snug tracking-tight">{contact.title}</h4>
+                  <p className="text-black-400">{contact.desc}</p>
                 </div>
               </div>
             ))}
@@ -132,4 +128,14 @@ export default function About() {
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(`${API_URL}/api/contact`)
+
+  const contacts = await response.json()
+
+  return {
+    props: { contacts },
+  }
 }

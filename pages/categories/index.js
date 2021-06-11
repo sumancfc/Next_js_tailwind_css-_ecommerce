@@ -6,7 +6,7 @@ export default function Categories({ categories }) {
   return (
     <Layout pageTitle="Our Categories">
       <div className="w-full relative">
-        <div className="container bg-white my-10 py-6">
+        <div className="px-8 py-16 bg-white">
           <Category categories={categories} />
         </div>
       </div>

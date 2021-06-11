@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/outline"
 
 export default function Accordion({ faqs }) {
   const [clicked, setClicked] = useState(false)
@@ -14,25 +15,25 @@ export default function Accordion({ faqs }) {
   return (
     <>
       {faqs.map((faq) => (
-        <div className="max-w-4xl mx-auto mb-5 p-5 border rounded shadow-md" key={faq.id}>
+        <div className="max-w-4xl mx-auto mb-5  border rounded shadow-md" key={faq.id}>
           <div
-            className="bg-white-500 flex items-center justify-between cursor-pointer"
+            className="px-6 py-3 bg-white-500 flex items-center justify-between cursor-pointer"
             onClick={() => toggle(faq.id)}
           >
-            <h3 className="text-gray-700  font-medium text-base sm:text-xl tracking-wider">
+            <h3 className=" text-gray-700  font-medium text-base sm:text-xl tracking-wider">
               {faq.question}
             </h3>
             <span>
               {clicked === faq.id ? (
-                <i className="fas fa-arrow-up" />
+                <ChevronUpIcon className="h-5" />
               ) : (
-                <i className="fas fa-arrow-down" />
+                <ChevronDownIcon className="h-5" />
               )}
             </span>
           </div>
           {clicked === faq.id ? (
             <div className="mt-2">
-              <p className=" font-normal text-gray-600">{faq.answer}</p>
+              <p className="px-6 py-3 font-normal text-gray-600 bg-white">{faq.answer}</p>
             </div>
           ) : null}
         </div>

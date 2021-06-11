@@ -41,6 +41,7 @@ export default function SubCategories({ subcategories }) {
               {/* <Link href={`/categories/${subcategories.slug}/${category.slug}`}> */}
               <a className=" w-full h-full group">
                 <Image
+                  loading="lazy"
                   src={category.image}
                   alt={category.title}
                   width={120}

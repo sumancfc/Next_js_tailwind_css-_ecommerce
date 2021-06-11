@@ -20,7 +20,7 @@ function ZoomImage({ src, alt }) {
         backgroundPosition: backgroundPos,
       }}
     >
-      <img src={src} alt={alt} />
+      <img loading="lazy" src={src} alt={alt} />
     </figure>
   )
 }

@@ -49,6 +49,7 @@ export default function CategorySlider({ categories, categoryId }) {
                   <Link href={`/categories/[slug]`} as={`/categories/${category.slug}`}>
                     <a className=" w-full h-full group">
                       <Image
+                        loading="lazy"
                         src={category.image}
                         alt={category.title}
                         width={120}

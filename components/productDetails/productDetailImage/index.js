@@ -42,7 +42,7 @@ function ProductDetailImage({ product }) {
             {product &&
               product.images.map((img, i) => (
                 <div key={i} className="slider-item">
-                  <img src={img} alt={product.name} />
+                  <img loading="lazy" src={img} alt={product.name} />
                 </div>
               ))}
           </Slider>
@@ -64,7 +64,7 @@ function ProductDetailImage({ product }) {
             {product &&
               product.images.map((img, i) => (
                 <div key={i} className="slider-item">
-                  <img src={img} alt={product.name} />
+                  <img loading="lazy" src={img} alt={product.name} />
                 </div>
               ))}
           </Slider>

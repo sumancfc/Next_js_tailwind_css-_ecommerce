@@ -20,7 +20,7 @@ export default function MegaMenu({ menuData, openMblNav, className }) {
       )}
 
       {className === "primary-menu" ? (
-        <ul className="absolute hidden w-max mx-auto bg-main-gray mega-menu">
+        <ul className="absolute hidden w-max mx-auto bg-main-gray z-50 mega-menu">
           {menuData &&
             menuData.megaContent.map((megaItem) => (
               <div className="p-3" key={megaItem.heading}>
@@ -68,53 +68,3 @@ export default function MegaMenu({ menuData, openMblNav, className }) {
     </li>
   )
 }
-
-// import Link from "next/link"
-// import { ChevronRightIcon } from "@heroicons/react/outline"
-
-// export default function MegaMenu({ menuData }) {
-//   // console.log(menuData)
-//   return (
-//     <li className={menuData.megaContent ? "relative menu-item-has-children has-mega-menu" : ""}>
-//       {menuData.type === "dynamic" ? (
-//         <Link href={`${menuData.url}/[pid]`} as={`${menuData.url}/${menuData.endPoint}`}>
-//           <a>{menuData.text}</a>
-//         </Link>
-//       ) : (
-//         <Link href={menuData.url} as={menuData.url}>
-//           <a>
-//             {menuData.text} <ChevronRightIcon className="h-4 ml-1 icon" />
-//           </a>
-//         </Link>
-//       )}
-//       <div className="absolute hidden w-max mx-auto bg-main-gray mega-menu">
-//         {menuData &&
-//           menuData.megaContent.map((megaItem) => (
-//             <div className="p-3" key={megaItem.heading}>
-//               <h4 className="px-3 text-base  font-medium underline">
-//                 {megaItem.heading}
-//               </h4>
-//               <ul>
-//                 {megaItem.megaItems.map((megaSubItem) => (
-//                   <li key={megaSubItem.text}>
-//                     {megaSubItem.type === "dynamic" ? (
-//                       <Link
-//                         href={`${megaSubItem.url}/[pid]`}
-//                         as={`${megaSubItem.url}/${megaSubItem.endPoint}`}
-//                       >
-//                         <a>{megaSubItem.text}</a>
-//                       </Link>
-//                     ) : (
-//                       <Link href={megaSubItem.url} as={megaSubItem.url}>
-//                         <a>{megaSubItem.text}</a>
-//                       </Link>
-//                     )}
-//                   </li>
-//                 ))}
-//               </ul>
-//             </div>
-//           ))}
-//       </div>
-//     </li>
-//   )
-// }

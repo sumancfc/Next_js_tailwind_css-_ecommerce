@@ -90,4 +90,12 @@
   .product-detail-image .mobile-image .slick-slide {
     @apply px-5;
   }
+
+  .hero .slick-prev {
+    @apply !left-0 !w-8 !h-16 !z-10 !bg-gray-300;
+  }
+
+  .hero .slick-next {
+    @apply !right-0 !w-8 !h-16 !z-10 !bg-gray-300;
+  }
 }
