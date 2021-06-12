@@ -35,7 +35,7 @@ function ProductDetailImage({ product }) {
   const [nav2, setNav2] = useState()
 
   return (
-    <div className="col-span-1">
+    <div className="col-span-1 bg-red-300">
       <div className="product-detail-image grid grid-cols-5 gap-6">
         <div className="small-image hidden sm:block overflow-hidden col-span-1">
           <Slider asNavFor={nav1} ref={(c) => setNav2(c)} {...bigSlider}>

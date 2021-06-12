@@ -4,7 +4,7 @@ import ProductGrid from "@/components/shop/ProductGrid"
 import { API_URL } from "@/config/index"
 
 export default function Shop({ products }) {
-  // console.log(products)
+  console.log(products)
   return (
     <Layout pageTitle="Our Products">
       <div className="w-full relative">
@@ -21,7 +21,8 @@ export default function Shop({ products }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`${API_URL}/api/products`)
+  const response = await fetch(`${API_URL}/api/product`)
+  // const response = await fetch(`${API_URL}/api/products`)
 
   const products = await response.json()
 

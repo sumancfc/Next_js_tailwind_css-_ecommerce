@@ -10,7 +10,7 @@ export default function ProductSlug({ product }) {
         <div className="container py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ProductDetailImage product={product} />
-            <ProductDetailContent />
+            <ProductDetailContent product={product} />
           </div>
         </div>
       </div>
@@ -19,7 +19,8 @@ export default function ProductSlug({ product }) {
 }
 
 export async function getServerSideProps({ query: { slug } }) {
-  const response = await fetch(`${API_URL}/api/products/${slug}`)
+  // const response = await fetch(`${API_URL}/api/products/${slug}`)
+  const response = await fetch(`${API_URL}/api/product/${slug}`)
 
   const products = await response.json()
 
