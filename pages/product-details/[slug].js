@@ -2,15 +2,16 @@ import { API_URL } from "@/config/index"
 import Layout from "@/components/layout"
 import ProductDetailContent from "@/components/productDetails/productDetailContent"
 import ProductDetailImage from "@/components/productDetails/productDetailImage"
+import { connect } from "react-redux"
 
-export default function ProductSlug({ product }) {
+function ProductSlug({ product, cartItems }) {
   return (
     <Layout pageTitle={product.name} parent="Product">
       <div className="w-full relative">
         <div className="container py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ProductDetailImage product={product} />
-            <ProductDetailContent product={product} />
+            <ProductDetailContent product={product} cartItems={cartItems} />
           </div>
         </div>
       </div>
@@ -32,3 +33,11 @@ export async function getServerSideProps({ query: { slug } }) {
     props: { product },
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cartData,
+  }
+}
+
+export default connect(mapStateToProps)(ProductSlug)
