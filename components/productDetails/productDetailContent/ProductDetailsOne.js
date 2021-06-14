@@ -1,25 +1,16 @@
-import React, { useState, useCallback, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { connect } from "react-redux"
 import { toast } from "react-toastify"
 import { StarIcon } from "@heroicons/react/outline"
 import { capitalizeFirstLetter, getDiscountPrice, getProductCartQuantity } from "@/common/utils"
 import { addToCart } from "../../../redux/actions/cartActions"
-import QuantityController from "@/components/controls/QuantityController"
 
-const ProductDetailContent = ({ product, cartItems }) => {
-  const {
-    name,
-    price,
-    shortDescription,
-    discount,
-    category,
-    tag,
-    variation,
-    stock,
-    minOrder,
-    limits,
-  } = product
+function ProductDetailContent({ product, cartItems }) {
+  const { name, price, shortDescription, discount, category, tag, variation, stock, minOrder } =
+    product
+
+  console.log(minOrder)
 
   const [selectedProductColor, setSelectedProductColor] = useState(
     variation ? variation[0].color : ""
@@ -36,37 +27,41 @@ const ProductDetailContent = ({ product, cartItems }) => {
     selectedProductSize
   )
 
-  const [total, setTotal] = useState(1)
-
-  // console.log(productStock)
-
   const discountedPrice = getDiscountPrice(price, discount)
 
   const finalProductPrice = +price.toFixed(2)
 
   const finalDiscountPrice = +discountedPrice.toFixed(2)
 
-  const addedToCart = (quantity) => {
+  const addedToCart = () => {
     toast.success("Added To Cart")
-    // console.log(quantity)
-  }
-
-  // console.log(quantityCount)
-
-  const changeProductValue = (stck) => {
-    // const arr = []
-    setProductStock(stck)
-    // const value = e.target.value
-    // console.log(e.target.value)
-    // const apple = document.getElementById("bhotahitiId").value
-    // console.log(apple)
-    // arr.push(apple)
-    // console.log(arr)
   }
 
   return (
     <div className="col-span-1 ml-5">
       <div className="space-y-4">
+        {/* Product Title */}
+        <h1 className="text-2xl font-medium">{capitalizeFirstLetter(name)}</h1>
+        {/* Product Rating */}
+        <div className="flex justify-start">
+          <StarIcon className="h-5 text-yellow-500" />
+          <StarIcon className="h-5 text-yellow-500" /> <StarIcon className="h-5 text-yellow-500" />{" "}
+          <StarIcon className="h-5 text-yellow-500" /> <StarIcon className="h-5 text-yellow-500" />
+        </div>
+
+        {/* Product Price */}
+        {discountedPrice !== 0 ? (
+          <p className="text-black text-xl relative font-semibold">
+            Rs. {finalDiscountPrice}
+            <span className="ml-2 text-gray-600 line-through">Rs. {finalProductPrice}</span>
+          </p>
+        ) : (
+          <p className="text-black text-xl relative font-semibold">Rs. {finalProductPrice}</p>
+        )}
+
+        {/* Product Short Description */}
+        {shortDescription && <p className="text-base">{shortDescription}</p>}
+
         {/* Product Variation */}
         {variation ? (
           <div className="product-details-variation space-y-3">
@@ -102,35 +97,33 @@ const ProductDetailContent = ({ product, cartItems }) => {
                 })}
               </div>
             </div>
-            <div className="flex product-details-size">
+            <div className="flex items-center product-details-size">
               <span>Size:</span>
-              <div className="ml-5 pro-details-size-content">
+              <div className="ml-3 flex pro-details-size-content">
                 {variation &&
                   variation.map((single) => {
                     return single.color === selectedProductColor
                       ? single.size.map((singleSize, key) => {
-                          const { stock, name } = singleSize
                           return (
-                            <div className="flex items-center mb-2" key={key}>
-                              <p className="w-10 text-sm font-medium uppercase">{name}</p>
-
-                              <QuantityController
-                                defaultValue={1}
-                                onChange={() => changeProductValue(stock)}
-                                // onChange={() => {
-                                //   const arr = []
-                                //   setProductStock(stock)
-                                //   // console.log(e.target.name)
-                                //   const apple = document.getElementById("bhotahitiId").value
-                                //   console.log(apple)
-                                //   arr.push(apple)
-                                //   console.log(arr)
-                                // }}
-                                max={productStock - productCartQty}
-                                sizeName={name}
-                                quantityCount={quantityCount}
+                            <label
+                              className="relative text-xs inline-block mr-1.5 uppercase text-black bg-gray-200 pro-details-size-content--single"
+                              key={key}
+                            >
+                              <input
+                                className="absolute top-0 left-0 w-full h-full cursor-pointer opacity-0"
+                                type="radio"
+                                value={singleSize.name}
+                                checked={singleSize.name === selectedProductSize ? "checked" : ""}
+                                onChange={() => {
+                                  setSelectedProductSize(singleSize.name)
+                                  setProductStock(singleSize.stock)
+                                  setQuantityCount(1)
+                                }}
                               />
-                            </div>
+                              <span className="font-xs font-normal w-full mb-0 p-2 block size-name">
+                                {singleSize.name}
+                              </span>
+                            </label>
                           )
                         })
                       : ""
@@ -144,34 +137,25 @@ const ProductDetailContent = ({ product, cartItems }) => {
 
         {/* Add To Cart */}
         <div className="flex">
-          {!variation && (
-            // <div className="cart-plus-minus">
-            //   <button
-            //     onClick={() => setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)}
-            //     className="dec qtybutton"
-            //   >
-            //     -
-            //   </button>
-            //   <input className="cart-plus-minus-box" type="text" value={quantityCount} readOnly />
-            //   <button
-            //     onClick={() =>
-            //       setQuantityCount(
-            //         quantityCount < productStock - productCartQty
-            //           ? quantityCount + 1
-            //           : quantityCount
-            //       )
-            //     }
-            //     className="inc qtybutton"
-            //   >
-            //     +
-            //   </button>
-            // </div>
-            <QuantityController
-              max={stock}
-              defaultValue={1}
-              onChange={(val) => setQuantityCount(val)}
-            />
-          )}
+          <div className="cart-plus-minus">
+            <button
+              onClick={() => setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)}
+              className="dec qtybutton"
+            >
+              -
+            </button>
+            <input className="cart-plus-minus-box" type="text" value={quantityCount} readOnly />
+            <button
+              onClick={() =>
+                setQuantityCount(
+                  quantityCount < productStock - productCartQty ? quantityCount + 1 : quantityCount
+                )
+              }
+              className="inc qtybutton"
+            >
+              +
+            </button>
+          </div>
           <div className="pro-details-cart btn-hover">
             {productStock && productStock > 0 ? (
               <button
@@ -185,7 +169,7 @@ const ProductDetailContent = ({ product, cartItems }) => {
                 //     selectedProductSize
                 //   )
                 // }
-                onClick={() => addedToCart(quantityCount)}
+                onClick={addedToCart}
                 disabled={productCartQty >= productStock || quantityCount <= minOrder}
               >
                 Add To Cart
@@ -195,6 +179,45 @@ const ProductDetailContent = ({ product, cartItems }) => {
             )}
           </div>
         </div>
+
+        {/* Product Category */}
+        {category ? (
+          <div className="flex">
+            <span className="text-base">Categories:</span>
+            <ul className="flex ml-2">
+              {category.map((single, i) => {
+                return (
+                  <li key={i}>
+                    <Link href={`/categories/${single}`}>
+                      <a className="mr-1">{single}</a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
+        {/* Product Tag */}
+        {tag ? (
+          <div className="flex">
+            <span>Tags :</span>
+            <ul className="flex ml-1 flex-wrap">
+              {tag.map((single, i) => {
+                return (
+                  <li key={i}>
+                    <Link href={`/categories/${single}`}>
+                      <a className="mr-1">{single}</a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   )

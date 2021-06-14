@@ -1,8 +1,9 @@
+import { connect } from "react-redux"
 import { API_URL } from "@/config/index"
 import Layout from "@/components/layout"
 import ProductDetailContent from "@/components/productDetails/productDetailContent"
 import ProductDetailImage from "@/components/productDetails/productDetailImage"
-import { connect } from "react-redux"
+import ProductDetailsOne from "@/components/productDetails/productDetailContent/ProductDetailsOne"
 
 function ProductSlug({ product, cartItems }) {
   return (
@@ -10,7 +11,8 @@ function ProductSlug({ product, cartItems }) {
       <div className="w-full relative">
         <div className="container py-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ProductDetailImage product={product} />
+            {/* <ProductDetailImage product={product} /> */}
+            {/* <ProductDetailsOne product={product} cartItems={cartItems} /> */}
             <ProductDetailContent product={product} cartItems={cartItems} />
           </div>
         </div>

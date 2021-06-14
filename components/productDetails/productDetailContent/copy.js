@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react"
+import { useState, useCallback, useEffect } from "react"
 import Link from "next/link"
 import { connect } from "react-redux"
 import { toast } from "react-toastify"
@@ -7,7 +7,7 @@ import { capitalizeFirstLetter, getDiscountPrice, getProductCartQuantity } from 
 import { addToCart } from "../../../redux/actions/cartActions"
 import QuantityController from "@/components/controls/QuantityController"
 
-const ProductDetailContent = ({ product, cartItems }) => {
+function ProductDetailContent({ product, cartItems }) {
   const {
     name,
     price,
@@ -20,6 +20,8 @@ const ProductDetailContent = ({ product, cartItems }) => {
     minOrder,
     limits,
   } = product
+
+  // console.log(limits)
 
   const [selectedProductColor, setSelectedProductColor] = useState(
     variation ? variation[0].color : ""
@@ -36,10 +38,6 @@ const ProductDetailContent = ({ product, cartItems }) => {
     selectedProductSize
   )
 
-  const [total, setTotal] = useState(1)
-
-  // console.log(productStock)
-
   const discountedPrice = getDiscountPrice(price, discount)
 
   const finalProductPrice = +price.toFixed(2)
@@ -48,21 +46,39 @@ const ProductDetailContent = ({ product, cartItems }) => {
 
   const addedToCart = (quantity) => {
     toast.success("Added To Cart")
-    // console.log(quantity)
+    console.log(quantity)
   }
+  // const [value, setValue] = useState(1)
 
-  // console.log(quantityCount)
+  //   console.log(max)
+  // console.log(onChange(value))
 
-  const changeProductValue = (stck) => {
-    // const arr = []
-    setProductStock(stck)
-    // const value = e.target.value
-    // console.log(e.target.value)
-    // const apple = document.getElementById("bhotahitiId").value
-    // console.log(apple)
-    // arr.push(apple)
-    // console.log(arr)
-  }
+  // useEffect(() => {
+  //   onChange && onChange(value)
+  // }, [value])
+
+  // useEffect(() => {
+  //   setValue(defaultValue)
+  // }, [defaultValue])
+  const decreaseValue = useCallback(() => {
+    if (min && quantityCount <= min) {
+      return
+    } else {
+      if (quantityCount <= 1) {
+        return
+      }
+      onDecrease && onDecrease()
+      setValue(quantityCount - 1)
+    }
+  }, [quantityCount])
+
+  const increaseValue = useCallback(() => {
+    if (quantityCount >= (quantityCount < productStock - productCartQty)) {
+      return
+    }
+    onIncrease && onIncrease()
+    setValue(quantityCount + 1)
+  }, [quantityCount])
 
   return (
     <div className="col-span-1 ml-5">
@@ -109,27 +125,73 @@ const ProductDetailContent = ({ product, cartItems }) => {
                   variation.map((single) => {
                     return single.color === selectedProductColor
                       ? single.size.map((singleSize, key) => {
-                          const { stock, name } = singleSize
+                          // console.log(singleSize.stock.concat())
+                          // const totalStock = single.size.reduce((acc,curr)=>{
+                          //   return stock.stock
+                          // })
+                          // console.log(
+                          //   // single.size.reduce((acc, current) => {
+                          //   //   return acc + current
+                          //   // })
+                          //   // singleSize.stock.reduce((acc, current) => {
+                          //   //   return acc + current
+                          //   // })
+                          //   singleSize.concat()
+                          // )
                           return (
                             <div className="flex items-center mb-2" key={key}>
-                              <p className="w-10 text-sm font-medium uppercase">{name}</p>
-
-                              <QuantityController
-                                defaultValue={1}
-                                onChange={() => changeProductValue(stock)}
-                                // onChange={() => {
-                                //   const arr = []
-                                //   setProductStock(stock)
-                                //   // console.log(e.target.name)
-                                //   const apple = document.getElementById("bhotahitiId").value
-                                //   console.log(apple)
-                                //   arr.push(apple)
-                                //   console.log(arr)
-                                // }}
-                                max={productStock - productCartQty}
-                                sizeName={name}
-                                quantityCount={quantityCount}
+                              {/* <p className="w-10 text-sm font-medium uppercase">
+                                {singleSize.name}
+                              </p>
+                              <input
+                                className="absolute top-0 left-0 w-full h-full cursor-pointer opacity-0"
+                                type="radio"
+                                value={singleSize.name}
+                                checked={singleSize.name === selectedProductSize ? "checked" : ""}
+                                onChange={() => {
+                                  setSelectedProductSize(singleSize.name)
+                                  setProductStock(singleSize.stock)
+                                  setQuantityCount(1)
+                                }}
                               />
+                              <span className="font-xs font-normal w-full mb-0 p-2 block size-name">
+                                {singleSize.name}
+                              </span> */}
+                              <div className="cart-plus-minus">
+                                <button onClick={decreaseValue} className="dec qtybutton">
+                                  -
+                                </button>
+                                <input
+                                  className="cart-plus-minus-box"
+                                  type="text"
+                                  value={quantityCount}
+                                  readOnly
+                                />
+                                <button
+                                  onClick={() =>
+                                    setQuantityCount(
+                                      quantityCount < productStock - productCartQty
+                                        ? quantityCount + 1
+                                        : quantityCount
+                                    )
+                                  }
+                                  className="inc qtybutton"
+                                >
+                                  +
+                                </button>
+                              </div>
+                              {/* <p className="w-10 text-sm font-medium uppercase">
+                                {singleSize.name}
+                              </p>
+                              <p className="w-full ml-5 text-sm font-medium uppercase flex">
+                                Rs. {singleSize.price}
+                              </p> */}
+
+                              {/* <QuantityController
+                                max={singleSize.stock}
+                                defaultValue={1}
+                                onChange={setQuantityCount}
+                              /> */}
                             </div>
                           )
                         })

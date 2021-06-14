@@ -13,7 +13,7 @@ export default function Product({ products }) {
                 <a>
                   <Image
                     loading="lazy"
-                    src={product.thumbnail ? product.thumbnail : "/images/products/earph.jpg"}
+                    src={product.thumbnail ? product.thumbnail : "/images/products/dummy.jpg"}
                     width={300}
                     height={300}
                     layout="responsive"
@@ -44,9 +44,9 @@ export default function Product({ products }) {
               </Link>
               <div className="flex justify-start">
                 <StarIcon className="h-5 text-yellow-500" />
-                <StarIcon className="h-5 text-yellow-500" />{" "}
-                <StarIcon className="h-5 text-yellow-500" />{" "}
-                <StarIcon className="h-5 text-yellow-500" />{" "}
+                <StarIcon className="h-5 text-yellow-500" />
+                <StarIcon className="h-5 text-yellow-500" />
+                <StarIcon className="h-5 text-yellow-500" />
                 <StarIcon className="h-5 text-yellow-500" />
               </div>
               <p className="text-black text-base relative">

@@ -13,7 +13,7 @@ function ZoomImage({ src, alt }) {
 
   return (
     <figure
-      className="w-full bg-no-repeat cursor-zoom-in"
+      className="w-full bg-no-repeat cursor-zoom-in zoom-image"
       onMouseMove={handleMouseMove}
       style={{
         backgroundImage: `url(${src})`,

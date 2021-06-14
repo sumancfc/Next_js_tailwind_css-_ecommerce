@@ -1,4 +1,5 @@
-const { products } = require("./product.json")
+// const { products } = require("./product.json")
+const { products } = require("./vProduct.json")
 
 export default (req, res) => {
   if (req.method === "GET") {
