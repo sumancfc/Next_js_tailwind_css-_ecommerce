@@ -10,14 +10,14 @@ import { persistor } from "../redux/store"
 import withReduxStore from "../common/withReduxStore"
 
 const MyApp = ({ Component, pageProps, reduxStore }) => {
-  return (
-    <Provider store={reduxStore}>
-      <PersistGate loading={null} persistor={persistor}>
-        <ToastContainer />
-        <Component {...pageProps} />
-      </PersistGate>
-    </Provider>
-  )
+    return (
+        <Provider store={reduxStore}>
+            <PersistGate persistor={persistor}>
+                <ToastContainer />
+                <Component {...pageProps} />
+            </PersistGate>
+        </Provider>
+    )
 }
 
 export default withReduxStore(MyApp)

@@ -21,7 +21,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
     "slick-carousel": "^1.8.1",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
