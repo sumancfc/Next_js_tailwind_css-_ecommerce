@@ -10,7 +10,10 @@ export default function HeaderActions({ className }) {
         <div className="ml-4 md:ml-0 flex items-center space-x-1 md:space-x-4">
             <div className="hidden md:flex">
                 <Link href="/wallet">
-                    <a className="inline-block relative w-10 h-12 transition-all duration-300 ease-in">
+                    <a
+                        className="inline-block relative w-10 h-12 transition-all duration-300 ease-in"
+                        title="wallet"
+                    >
                         <CreditCardIcon className="h-9 text-main-blue" />
                     </a>
                 </Link>
@@ -18,7 +21,10 @@ export default function HeaderActions({ className }) {
 
             <div className="hidden md:flex">
                 <Link href="/wishlist">
-                    <a className="inline-block relative w-10 h-12 transition-all duration-300 ease-in">
+                    <a
+                        className="inline-block relative w-10 h-12 transition-all duration-300 ease-in"
+                        title="wishlist"
+                    >
                         <HeartIcon className="h-8 text-main-blue" />
                         <span className="absolute bottom-1 right-2.5 flex justify-center items-center w-6 h-6 rounded-full bg-black  text-xs text-white">
                             {wishlistState && wishlistState.length ? wishlistState.length : 0}
@@ -29,7 +35,10 @@ export default function HeaderActions({ className }) {
 
             <div className="flex">
                 <Link href="/cart">
-                    <a className="inline-block relative w-10 h-12 transition-all duration-300 ease-in">
+                    <a
+                        className="inline-block relative w-10 h-12 transition-all duration-300 ease-in"
+                        title="cart"
+                    >
                         <ShoppingCartIcon className="h-8 text-main-blue" />
                         <span className="absolute bottom-1 right-2.5 flex justify-center items-center w-6 h-6 rounded-full bg-black  text-xs text-white">
                             {cartState && cartState.length ? cartState.length : 0}

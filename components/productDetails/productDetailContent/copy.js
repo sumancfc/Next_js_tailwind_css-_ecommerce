@@ -1,14 +1,30 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Link from "next/link"
-import { connect } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { toast } from "react-toastify"
-import { StarIcon } from "@heroicons/react/outline"
+import { HeartIcon, ThumbUpIcon } from "@heroicons/react/outline"
 import { capitalizeFirstLetter, getDiscountPrice, getProductCartQuantity } from "@/common/utils"
-import { addToCart } from "../../../redux/actions/cartActions"
+import { addToCart } from "redux/actions/cartActions"
+import { addToWishlist } from "redux/actions/wishlistActions"
+import ProductRating from "@/components/elements/rating"
 
-function ProductDetailContent({ product, cartItems }) {
-    const { name, price, shortDescription, discount, category, tag, variation, stock, minOrder } =
-        product
+function ProductDetailContentCopy({ product }) {
+    const {
+        title,
+        quantity,
+        minOrder,
+        brand,
+        categories,
+        tags,
+        isGenuine,
+        variation,
+        isOrderSampleOpt,
+    } = product
+    const dispatch = useDispatch()
+    const cartState = useSelector((state) => state.cartData)
+    const wishlistState = useSelector((state) => state.wishlistData)
+
+    const wishlistItem = wishlistState.filter((item) => item.id === product.id)[0]
 
     const [selectedProductColor, setSelectedProductColor] = useState(
         variation ? variation[0].color : ""
@@ -16,44 +32,51 @@ function ProductDetailContent({ product, cartItems }) {
     const [selectedProductSize, setSelectedProductSize] = useState(
         variation ? variation[0].size[0].name : ""
     )
-    const [productStock, setProductStock] = useState(variation ? variation[0].size[0].stock : stock)
+    const [productStock, setProductStock] = useState(
+        variation ? variation[0].size[0].quantity : quantity
+    )
     const [quantityCount, setQuantityCount] = useState(1)
-    // const productCartQty = getProductCartQuantity(
-    //     cartItems,
-    //     product,
-    //     selectedProductColor,
-    //     selectedProductSize
-    // )
+    const productCartQty = getProductCartQuantity(
+        cartState,
+        product,
+        selectedProductColor,
+        selectedProductSize
+    )
 
-    console.log(getProductCartQuantity())
+    // const discountedPrice = getDiscountPrice(price, discount)
 
-    const discountedPrice = getDiscountPrice(price, discount)
+    // const finalProductPrice = +price.toFixed(2)
 
-    const finalProductPrice = +price.toFixed(2)
+    // const finalDiscountPrice = +discountedPrice.toFixed(2)
 
-    const finalDiscountPrice = +discountedPrice.toFixed(2)
+    const onAddProductToCart = (product) => {
+        dispatch(addToCart(product, quantityCount, selectedProductColor, selectedProductSize))
+        toast.success("Product added to cart successfully")
+    }
 
-    const addedToCart = () => {
-        toast.success("Added To Cart")
-        console.log(quantityCount)
+    const onAddProductToWishlist = (product) => {
+        dispatch(addToWishlist(product))
+        toast.success("Product added to wishlist successfully")
+        console.log("added")
     }
 
     return (
         <div className="col-span-1 ml-5">
             <div className="space-y-4">
                 {/* Product Title */}
-                <h1 className="text-2xl font-medium">{capitalizeFirstLetter(name)}</h1>
+                <h1 className="text-2xl font-medium">{capitalizeFirstLetter(title)}</h1>
                 {/* Product Rating */}
-                <div className="flex justify-start">
-                    <StarIcon className="h-5 text-yellow-500" />
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />
-                </div>
+                {/* {reviews && reviews > 0 ? (
+                    <div className="">
+                        <ProductRating value={reviews} text={`${reviewCount} ratings`} />
+                    </div>
+                ) : (
+                    <p>No Review Yet</p>
+                )} */}
+                <p>No Review Yet</p>
 
                 {/* Product Price */}
-                {discountedPrice !== 0 ? (
+                {/* {discountedPrice !== 0 ? (
                     <p className="text-black text-xl relative font-semibold">
                         Rs. {finalDiscountPrice}
                         <span className="ml-2 text-gray-600 line-through">
@@ -64,13 +87,14 @@ function ProductDetailContent({ product, cartItems }) {
                     <p className="text-black text-xl relative font-semibold">
                         Rs. {finalProductPrice}
                     </p>
-                )}
+                )} */}
+                <p className="text-black text-xl relative font-semibold">Rs. 5000</p>
 
                 {/* Product Short Description */}
-                {shortDescription && <p className="text-base">{shortDescription}</p>}
+                {/* {shortDescription && <p className="text-base">{shortDescription}</p>} */}
 
                 {/* Product Variation */}
-                {variation ? (
+                {/* {variation ? (
                     <div className="product-details-variation space-y-3">
                         <div className="flex items-center product-details-color">
                             <span>Color:</span>
@@ -98,7 +122,7 @@ function ProductDetailContent({ product, cartItems }) {
                                                 onChange={() => {
                                                     setSelectedProductColor(single.color)
                                                     setSelectedProductSize(single.size[0].name)
-                                                    setProductStock(single.size[0].stock)
+                                                    setProductStock(single.size[0].quantity)
                                                     setQuantityCount(1)
                                                 }}
                                             />
@@ -151,6 +175,24 @@ function ProductDetailContent({ product, cartItems }) {
                     </div>
                 ) : (
                     ""
+                )} */}
+
+                {/* Brand */}
+                <div>
+                    <Link href="/brands">
+                        <a className="mr-1 text-main-blue">
+                            Brand: <span className="text-black">{brand.title}</span>
+                        </a>
+                    </Link>
+                </div>
+
+                {isGenuine && (
+                    <p className="flex">
+                        Genuine:
+                        <span className="ml-2">
+                            <ThumbUpIcon className="h-5 text-main-blue" />
+                        </span>
+                    </p>
                 )}
 
                 {/* Add To Cart */}
@@ -187,16 +229,7 @@ function ProductDetailContent({ product, cartItems }) {
                         {productStock && productStock > 0 ? (
                             <button
                                 className="btn-bhotahiti focus:outline-none"
-                                // onClick={() =>
-                                //     addToCart(
-                                //         product,
-                                //         toast,
-                                //         quantityCount,
-                                //         selectedProductColor,
-                                //         selectedProductSize
-                                //     )
-                                // }
-                                onClick={addedToCart}
+                                onClick={() => onAddProductToCart(product)}
                                 disabled={
                                     productCartQty >= productStock || quantityCount <= minOrder
                                 }
@@ -209,16 +242,28 @@ function ProductDetailContent({ product, cartItems }) {
                     </div>
                 </div>
 
+                {/* Add to wishlist */}
+                <div className="pro-details-wishlist">
+                    <button
+                        className={wishlistItem !== undefined ? "active" : ""}
+                        disabled={wishlistItem !== undefined}
+                        title={wishlistItem !== undefined ? "Added to wishlist" : "Add to wishlist"}
+                        onClick={() => onAddProductToWishlist(product)}
+                    >
+                        Add To Wishlist
+                    </button>
+                </div>
+
                 {/* Product Category */}
-                {category ? (
+                {categories ? (
                     <div className="flex">
                         <span className="text-base">Categories:</span>
                         <ul className="flex ml-2">
-                            {category.map((single, i) => {
+                            {categories.map((category) => {
                                 return (
-                                    <li key={i}>
-                                        <Link href={`/categories/${single}`}>
-                                            <a className="mr-1">{single}</a>
+                                    <li key={category.id}>
+                                        <Link href={`/categories/${category.id}`}>
+                                            <a className="mr-1">{category.title}</a>
                                         </Link>
                                     </li>
                                 )
@@ -229,15 +274,15 @@ function ProductDetailContent({ product, cartItems }) {
                     ""
                 )}
                 {/* Product Tag */}
-                {tag ? (
+                {tags ? (
                     <div className="flex">
                         <span>Tags :</span>
                         <ul className="flex ml-1 flex-wrap">
-                            {tag.map((single, i) => {
+                            {tags.map((tag) => {
                                 return (
-                                    <li key={i}>
-                                        <Link href={`/categories/${single}`}>
-                                            <a className="mr-1">{single}</a>
+                                    <li key={tag.id}>
+                                        <Link href={`/categories/${tag.id}`}>
+                                            <a className="mr-1">{tag.title}</a>
                                         </Link>
                                     </li>
                                 )
@@ -247,19 +292,20 @@ function ProductDetailContent({ product, cartItems }) {
                 ) : (
                     ""
                 )}
+
+                <div>
+                    {isOrderSampleOpt && (
+                        <p>
+                            Order Your Sample:{" "}
+                            <a href="/" className="underline text-main-red">
+                                Order Sample
+                            </a>
+                        </p>
+                    )}
+                </div>
             </div>
         </div>
     )
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (item, toast, quantityCount, selectedProductColor, selectedProductSize) => {
-            dispatch(
-                addToCart(item, toast, quantityCount, selectedProductColor, selectedProductSize)
-            )
-        },
-    }
-}
-
-export default connect(null, mapDispatchToProps)(ProductDetailContent)
+export default React.memo(ProductDetailContentCopy)

@@ -2,14 +2,26 @@ import React, { useState } from "react"
 import Link from "next/link"
 import { useSelector, useDispatch } from "react-redux"
 import { toast } from "react-toastify"
-import { StarIcon, HeartIcon } from "@heroicons/react/outline"
+import { HeartIcon } from "@heroicons/react/outline"
 import { capitalizeFirstLetter, getDiscountPrice, getProductCartQuantity } from "@/common/utils"
 import { addToCart } from "redux/actions/cartActions"
 import { addToWishlist } from "redux/actions/wishlistActions"
+import ProductRating from "@/components/elements/rating"
 
 function ProductDetailContent({ product }) {
-    const { name, price, shortDescription, discount, category, tag, variation, stock, minOrder } =
-        product
+    const {
+        name,
+        price,
+        shortDescription,
+        discount,
+        category,
+        tag,
+        variation,
+        stock,
+        minOrder,
+        reviews,
+        reviewCount,
+    } = product
     const dispatch = useDispatch()
     const cartState = useSelector((state) => state.cartData)
     const wishlistState = useSelector((state) => state.wishlistData)
@@ -54,13 +66,13 @@ function ProductDetailContent({ product }) {
                 {/* Product Title */}
                 <h1 className="text-2xl font-medium">{capitalizeFirstLetter(name)}</h1>
                 {/* Product Rating */}
-                <div className="flex justify-start">
-                    <StarIcon className="h-5 text-yellow-500" />
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />{" "}
-                    <StarIcon className="h-5 text-yellow-500" />
-                </div>
+                {reviews && reviews > 0 ? (
+                    <div className="">
+                        <ProductRating value={reviews} text={`${reviewCount} ratings`} />
+                    </div>
+                ) : (
+                    <p>No Review Yet</p>
+                )}
 
                 {/* Product Price */}
                 {discountedPrice !== 0 ? (

@@ -1,7 +1,7 @@
 import Layout from "@/components/layout"
 import LeftSidebar from "@/components/shop/LeftSidebar"
 import ProductGrid from "@/components/shop/ProductGrid"
-import { API_URL } from "@/config/index"
+import { API_URL, BACKEND_URL } from "@/config/index"
 
 export default function Shop({ products }) {
     // console.log(products)
@@ -21,13 +21,13 @@ export default function Shop({ products }) {
 }
 
 export async function getStaticProps() {
-    const response = await fetch(`${API_URL}/api/product`)
-    // const response = await fetch(`${API_URL}/api/products`)
+    // const response = await fetch(`${API_URL}/api/product`)
+    const response = await fetch(`${BACKEND_URL}/api/products`)
 
     const products = await response.json()
 
     return {
-        props: { products: products.slice(0, 4) },
+        props: { products: products },
         revalidate: 2,
     }
 }
