@@ -36,7 +36,7 @@ export default function RegisterPage() {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.table({ name, phone, code, password })
-        router.push("/account/register")
+        router.push("/account/login")
     }
 
     const handleChange = (name) => (e) => {
