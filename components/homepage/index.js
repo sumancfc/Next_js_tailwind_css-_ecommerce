@@ -86,7 +86,7 @@ export default function HomePage({ categories, products, sliders }) {
                 <CategorySlider categories={categories} categoryId="3" />
             </SectionLayout>
 
-            <SectionLayout title="Our Recommendation">
+            {/* <SectionLayout title="Our Recommendation">
                 <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {products.map((product) => (
                         <div className="col-span-1" key={product.id}>
@@ -127,7 +127,7 @@ export default function HomePage({ categories, products, sliders }) {
                         </div>
                     ))}
                 </div>
-            </SectionLayout>
+            </SectionLayout> */}
         </>
     )
 }

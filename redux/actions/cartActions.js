@@ -3,6 +3,7 @@ import {
     DECREASE_QUANTITY,
     DELETE_ALL_FROM_CART,
     DELETE_FROM_CART,
+    SAVE_SHIPPING_ADDRESS,
 } from "../constants/cartConstants"
 
 //add to cart
@@ -68,5 +69,12 @@ export const cartItemStock = (item) => {
     // console.log(item)
     if (item.quantity) {
         return item.quantity
+    }
+}
+
+//shipping address
+export const saveShippingAddress = (data) => {
+    return (dispatch) => {
+        dispatch({ type: SAVE_SHIPPING_ADDRESS, payload: data })
     }
 }
