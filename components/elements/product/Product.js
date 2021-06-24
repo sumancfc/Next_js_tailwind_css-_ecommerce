@@ -4,7 +4,7 @@ import { HeartIcon, StarIcon } from "@heroicons/react/outline"
 import { BACKEND_URL } from "@/config/index"
 
 export default function Product({ products }) {
-    console.log(products)
+    // console.log(products)
     return (
         <>
             {products.map((product) => (

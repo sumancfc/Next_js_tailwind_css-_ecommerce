@@ -44,7 +44,7 @@ function ProductDetailImage({ product }) {
                     <Slider asNavFor={nav1} ref={(c) => setNav2(c)} {...bigSlider}>
                         {product &&
                             product.media.map((img, i) => {
-                                console.log(`${BACKEND_URL}${product.media}`)
+                                // console.log(`${BACKEND_URL}${product.media}`)
                                 return (
                                     <div key={i} className="slider-item">
                                         {/* <img loading="lazy" src={img} alt={product.name} /> */}

@@ -31,3 +31,16 @@ export const getProductCartQuantity = (cartItems, product, color, size) => {
         return 0
     }
 }
+
+export const checkAvaiableQuantityToAdd = (arr, product) => {
+    const productsInCart = arr.filter((item) => item.id === product.id)
+    if (productsInCart && productsInCart.length > 0) {
+        const totalProductQuantityInCart =
+            productsInCart.length > 0 &&
+            productsInCart.reduce((total, item) => total + item.cartQuantity, 0)
+        let avaiable = product.quantity - totalProductQuantityInCart
+        return avaiable < 1 ? 0 : avaiable
+    } else {
+        product.quantity
+    }
+}

@@ -12,6 +12,7 @@ module.exports = {
           light: "#f9f9f9",
           white: "#f1f3f6",
           text: " #777777",
+          btn:"#343538",
         },
       },
       fontFamily: {

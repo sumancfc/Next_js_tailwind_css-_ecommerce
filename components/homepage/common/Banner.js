@@ -6,7 +6,7 @@ export default function Banner({ banners }) {
         <div className="pt-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {banners.map((banner, i) => (
                 <div key={i} className="col-span-1 overflow-hidden">
-                    <div className="relative overflow-hidden w-80 h-48">
+                    <div className="relative overflow-hidden w-full h-48">
                         <Link href={`${banner.url}`}>
                             <a className="image-hover ">
                                 <Image

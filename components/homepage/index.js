@@ -6,6 +6,7 @@ import CategorySlider from "./common/CategorySlider"
 import Hero from "./common/Hero"
 import Banner from "./common/Banner"
 import FeaturedBanner from "./common/FeaturedBanner"
+import CategoryLayout from "../layout/CategoryLayout"
 
 const banners = [
     {
@@ -66,6 +67,8 @@ export default function HomePage({ categories, products, sliders }) {
             <SectionLayout title="Shop By Category" url="/categories">
                 <Category categories={categories} className="mt-5" />
             </SectionLayout>
+
+            <CategoryLayout />
 
             <SectionLayout title="" url="">
                 <Banner banners={banners} />

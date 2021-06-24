@@ -3,7 +3,7 @@ import { API_URL, BACKEND_URL } from "@/config/index"
 import Layout from "@/components/layout"
 import ProductDetails from "@/components/productDetails"
 
-function ProductSlug({ product }) {
+function ProductDetaisPage({ product }) {
     // console.log(product)
     return (
         <Layout pageTitle={product.name} parent="Product">
@@ -46,4 +46,4 @@ export async function getServerSideProps({ query: { id } }) {
     // }
 }
 
-export default React.memo(ProductSlug)
+export default React.memo(ProductDetaisPage)

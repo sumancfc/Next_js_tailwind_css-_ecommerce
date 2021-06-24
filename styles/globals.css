@@ -34,6 +34,11 @@
         color: #1f9d55;
     }
 
+    /* Input Form Class */
+    .form-input {
+        @apply text-sm appearance-none rounded w-full py-2 px-4 text-gray-700 leading-tight border border-gray-500 shadow-sm h-12;
+    }
+
     .product-details-variation .product-details-color .checkmark:after {
         position: absolute;
         top: -4px;
@@ -123,10 +128,14 @@
         text-transform: uppercase;
         color: #fff;
         border: none;
-        background: none;
         background-color: #343538;
         position: relative;
         transition: all 0.5s ease-in-out 0s;
+        cursor: pointer;
+    }
+
+    .btn-bhotahiti:focus {
+        outline: none;
     }
 
     .variation-input {
@@ -202,10 +211,6 @@
     }
     .btn {
         @apply flex items-center justify-center flex-shrink-0 p-4  tracking-wider w-auto uppercase rounded shadow-md outline-none ease-in-out focus:outline-none text-white bg-gray-900 hover:bg-gray-900 h-11;
-    }
-
-    .form {
-        @apply w-full ring-2 ring-gray-300 px-4 py-2 focus:outline-none focus:ring-2;
     }
 
     .bhotahiti-sub-menu {
@@ -296,5 +301,22 @@
 
     .zoom-image:hover img {
         @apply opacity-0;
+    }
+
+    .cart-class {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    @screen sm {
+        .cart-class {
+            justify-content: space-between;
+        }
+        .cart-details {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
 }

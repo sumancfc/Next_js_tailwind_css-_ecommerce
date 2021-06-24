@@ -245,7 +245,7 @@ function ProductDetailContentCopy({ product }) {
                 {/* Add to wishlist */}
                 <div className="pro-details-wishlist">
                     <button
-                        className={wishlistItem !== undefined ? "active" : ""}
+                        className={wishlistItem !== undefined ? "active" : "focus:outline-none"}
                         disabled={wishlistItem !== undefined}
                         title={wishlistItem !== undefined ? "Added to wishlist" : "Add to wishlist"}
                         onClick={() => onAddProductToWishlist(product)}

@@ -1,34 +1,80 @@
-import Logo from "@/components/elements/logo"
-import Layout from "@/components/layout"
+import { useState } from "react"
+import { useRouter } from "next/router"
+import FormNameAndNumber from "@/components/pages/register/FormNameAndNumber"
+import FormOtp from "@/components/pages/register/FormOtp"
+import FormPassword from "@/components/pages/register/FromPassword"
 
-export default function Register() {
-  return (
-    <Layout pageTitle="Register">
-      <div className="container my-10 w-full max-w-max md:max-w-4xl">
-        <div className="flex flex-col md:flex-row md:items-center p-8 bg-white shadow-sm md:space-x-10">
-          <div className="order-2 md:order-1 flex-1 mt-5 md:mt-0">
-            <h1 className="text-lg md:text-2xl ">Register an Account</h1>
-            <div className="mt-4">
-              <form>
-                <div>
-                  <input
-                    class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
-                    id="email"
-                    type="text"
-                    placeholder="Enter Your Name"
-                  />
-                </div>
-              </form>
-            </div>
-          </div>
-          <div className="md:order-2">
-            <Logo />
-            <span className="block bg-main-red p-2 text-white uppercase rounded-sm">
-              online wholesale bazar
-            </span>
-          </div>
-        </div>
-      </div>
-    </Layout>
-  )
+export default function RegisterPage() {
+    const [step, setStep] = useState(1)
+    const [values, setValues] = useState({
+        name: "",
+        phone: "",
+        code: "",
+        password: "",
+        confirmPassword: "",
+        loading: false,
+        error: "",
+    })
+
+    const router = useRouter()
+
+    const { name, phone, code, password, loading, error } = values
+
+    const onContinueSubmit = (e) => {
+        e.preventDefault()
+        setStep(step + 1)
+        console.table({ name, phone })
+    }
+
+    const verifyCode = (e) => {
+        e.preventDefault()
+        setStep(step + 1)
+        console.table({ name, phone, code })
+        console.log("Yout go to next page")
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.table({ name, phone, code, password })
+        router.push("/account/register")
+    }
+
+    const handleChange = (name) => (e) => {
+        setValues({ ...values, error: false, [name]: e.target.value })
+    }
+
+    switch (step) {
+        case 1:
+            return (
+                <FormNameAndNumber
+                    name={name}
+                    phone={phone}
+                    handleChange={handleChange}
+                    onContinueSubmit={onContinueSubmit}
+                />
+            )
+
+        case 2:
+            return (
+                <FormOtp
+                    name={name}
+                    phone={phone}
+                    code={code}
+                    handleChange={handleChange}
+                    verifyCode={verifyCode}
+                />
+            )
+
+        case 3:
+            return (
+                <FormPassword
+                    name={name}
+                    phone={phone}
+                    code={code}
+                    password={password}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                />
+            )
+    }
 }
