@@ -10,6 +10,7 @@ export default function PaymentSuccessPage() {
             router.push("/")
         }, 5000)
     }, [])
+
     return (
         <Layout pageTitle="Payment Success">
             <div className=" w-full relative">

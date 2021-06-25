@@ -349,6 +349,22 @@
         align-items: center;
     }
 
+    .order-track-step {
+        @apply bg-main-blue h-9 w-9 text-white rounded-full p-2 mx-auto z-20;
+    }
+
+    .order-track-success li:first-child .order-track-step::after {
+        width: 100px;
+        left: 90px;
+        @apply bg-yellow-500;
+    }
+
+    .order-track-success li:last-child .order-track-step::after {
+        width: 100px;
+        right: 90px;
+        @apply bg-yellow-500;
+    }
+
     @screen sm {
         .cart-class {
             justify-content: space-between;
