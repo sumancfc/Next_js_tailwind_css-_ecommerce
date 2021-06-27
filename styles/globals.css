@@ -350,14 +350,15 @@
     }
 
     .order-track-step {
-        @apply bg-main-blue h-9 w-9 text-white rounded-full p-2 mx-auto z-20;
+        @apply bg-main-blue h-9 w-9 text-white rounded-full p-2 mx-auto z-50;
     }
 
-    .order-track-success li:first-child .order-track-step::after {
+    /* .order-track-success li:first-child .order-track-step::after {
         width: 100px;
         left: 90px;
+        z-index: -1;
         @apply bg-yellow-500;
-    }
+    } */
 
     .order-track-success li:last-child .order-track-step::after {
         width: 100px;

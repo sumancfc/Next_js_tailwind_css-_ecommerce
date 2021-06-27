@@ -23,7 +23,7 @@ export default function CheckoutSteps({ step1, step2, step3, step4 }) {
             </div>
             <div>
                 {step3 ? (
-                    <Link href="/account/payment">Payment</Link>
+                    <Link href="/account/payment-method">Payment</Link>
                 ) : (
                     <a disabled className="text-gray-400">
                         Payment

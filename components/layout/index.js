@@ -21,7 +21,6 @@ export default function Layout({ pageTitle, parentTitle, title, keywords, descri
                 <meta name="title" content={title} />
                 <meta name="description" content={description} />
                 <meta name="keywords" content={keywords} />
-                <link rel="stylesheet" href="/assets/fonts/css/all.min.css" />
                 <link
                     rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap"

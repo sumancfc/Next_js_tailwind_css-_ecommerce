@@ -4,6 +4,7 @@ import {
     DELETE_FROM_CART,
     DELETE_ALL_FROM_CART,
     SAVE_SHIPPING_ADDRESS,
+    SAVE_PAYMENT_METHOD,
 } from "../constants/cartConstants"
 import { v4 as uuidv4 } from "uuid"
 
@@ -119,6 +120,13 @@ const cartReducer = (state = { cartItems: [], shippingAddress: {} }, action) => 
         return {
             ...state,
             shippingAddress: action.payload,
+        }
+    }
+
+    if (action.type === SAVE_PAYMENT_METHOD) {
+        return {
+            ...state,
+            paymentMethod: action.payload,
         }
     }
 

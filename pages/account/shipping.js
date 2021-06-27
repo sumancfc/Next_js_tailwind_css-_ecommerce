@@ -21,7 +21,7 @@ export default function ShippingPage() {
         e.preventDefault()
         dispatch(saveShippingAddress({ address, city, postalCode, country }))
         console.table({ address, city, postalCode, country })
-        router.push("/account/payment")
+        router.push("/account/payment-method")
     }
 
     return (

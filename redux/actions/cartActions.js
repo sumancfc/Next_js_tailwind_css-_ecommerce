@@ -4,6 +4,7 @@ import {
     DELETE_ALL_FROM_CART,
     DELETE_FROM_CART,
     SAVE_SHIPPING_ADDRESS,
+    SAVE_PAYMENT_METHOD,
 } from "../constants/cartConstants"
 
 //add to cart
@@ -76,5 +77,12 @@ export const cartItemStock = (item) => {
 export const saveShippingAddress = (data) => {
     return (dispatch) => {
         dispatch({ type: SAVE_SHIPPING_ADDRESS, payload: data })
+    }
+}
+
+//shipping address
+export const savePaymentMethod = (data) => {
+    return (dispatch) => {
+        dispatch({ type: SAVE_PAYMENT_METHOD, payload: data })
     }
 }
