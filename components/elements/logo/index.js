@@ -1,18 +1,18 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Logo({ image, width, height, layout, alt }) {
+export default function Logo({ image, width, height, alt }) {
     return (
         <Link href="/">
-            <a>
+            <a className="w-1/2">
                 <Image
                     loading="lazy"
                     src={image}
                     width={width}
                     height={height}
-                    layout={layout}
                     alt={alt}
                     quality={100}
+                    objectFit="cover"
                 />
             </a>
         </Link>
@@ -23,6 +23,5 @@ Logo.defaultProps = {
     image: "/images/logo/Bhotahiti.png",
     width: "201",
     height: "48",
-    layout: "fixed",
     alt: "Bhotahiti Logo",
 }

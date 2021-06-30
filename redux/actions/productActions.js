@@ -1,13 +1,26 @@
-import { API_URL } from "@/config/index"
-import { FETCH_PRODUCTS_SUCCESS } from "../constants/productConstants"
+import { API_URL, PRODUCT_API_URL } from "@/config/index"
+import {
+    PRODUCT_LIST_REQUEST,
+    PRODUCT_LIST_SUCCESS,
+    PRODUCT_LIST_FAIL,
+    PRODUCT_DETAILS_FAIL,
+} from "../constants/productConstants"
 
 //get all products
-export const getAllProductsFrom = () => async (dispatch) => {
+export const getAllProducts = () => async (dispatch) => {
     try {
-        const res = await fetch(`${API_URL}/api/product`)
-        dispatch({ type: FETCH_PRODUCTS_SUCCESS, payload: res.data })
-        console.log(res.data)
+        dispatch({ type: PRODUCT_LIST_REQUEST })
+
+        const res = await fetch(`${API_URL}/api/products`)
+
+        const data = await res.json()
+
+        if (res.ok) {
+            dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
+        }
+        return data
     } catch (err) {
-        console.log(err)
+        // console.log(err)
+        dispatch({ type: PRODUCT_LIST_FAIL })
     }
 }

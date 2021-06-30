@@ -1,5 +1,5 @@
 import ZoomImage from "@/components/elements/zoomImage"
-import { BACKEND_URL } from "@/config/index"
+import { PRODUCT_API_URL } from "@/config/index"
 import React, { useState } from "react"
 import Slider from "react-slick"
 
@@ -44,13 +44,13 @@ function ProductDetailImage({ product }) {
                     <Slider asNavFor={nav1} ref={(c) => setNav2(c)} {...bigSlider}>
                         {product &&
                             product.media.map((img, i) => {
-                                // console.log(`${BACKEND_URL}${product.media}`)
+                                // console.log(`${PRODUCT_API_URL}${product.media}`)
                                 return (
                                     <div key={i} className="slider-item">
                                         {/* <img loading="lazy" src={img} alt={product.name} /> */}
                                         <img
                                             loading="lazy"
-                                            src={`${BACKEND_URL}${img}`}
+                                            src={`${PRODUCT_API_URL}${img}`}
                                             alt={product.title}
                                         />
                                     </div>
@@ -65,7 +65,10 @@ function ProductDetailImage({ product }) {
                             product.media.map((img, i) => (
                                 <div key={i} className="slider-item w-full h-full">
                                     {/* <ZoomImage src={img} alt={product.name} /> */}
-                                    <ZoomImage src={`${BACKEND_URL}${img}`} alt={product.title} />
+                                    <ZoomImage
+                                        src={`${PRODUCT_API_URL}${img}`}
+                                        alt={product.title}
+                                    />
                                 </div>
                             ))}
                     </Slider>
@@ -79,7 +82,7 @@ function ProductDetailImage({ product }) {
                                     {/* <img loading="lazy" src={img} alt={product.name} /> */}
                                     <img
                                         loading="lazy"
-                                        src={`${BACKEND_URL}${img}`}
+                                        src={`${PRODUCT_API_URL}${img}`}
                                         alt={product.title}
                                     />
                                 </div>

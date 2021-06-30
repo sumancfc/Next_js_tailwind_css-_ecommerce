@@ -1,5 +1,5 @@
 import React from "react"
-import { API_URL, BACKEND_URL } from "@/config/index"
+import { API_URL, PRODUCT_API_URL } from "@/config/index"
 import Layout from "@/components/layout"
 import ProductDetails from "@/components/productDetails"
 
@@ -18,32 +18,20 @@ function ProductDetaisPage({ product }) {
 
 export async function getServerSideProps({ query: { id } }) {
     //api with backend
-    const response = await fetch(`${BACKEND_URL}/api/products/${id}`)
+    const response = await fetch(`${PRODUCT_API_URL}/api/products/${id}`)
     const product = await response.json()
-
-    // console.log(product)
 
     if (!product) return { notFound: true }
 
+    // console.log(product)
+    // const response = await fetch(`${API_URL}/api/products/${id}`)
+    // // console.log(response)
+    // const product = await response.json()
+
     return {
+        // props: { product: product[0] },
         props: { product },
     }
-
-    //api from api file
-    // const response = await fetch(`${API_URL}/api/products/${slug}`)
-    // const response = await fetch(`${API_URL}/api/product/${slug}`)
-
-    // const products = await response.json()
-
-    // const product = products[0]
-
-    // console.log(product)
-
-    // if (!product) return { notFound: true }
-
-    // return {
-    //     props: { product },
-    // }
 }
 
 export default React.memo(ProductDetaisPage)

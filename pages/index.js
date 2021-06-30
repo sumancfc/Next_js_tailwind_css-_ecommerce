@@ -14,14 +14,10 @@ export default function Home({ categories, products, sliders }) {
 
 export async function getStaticProps() {
     const response = await fetch(`${API_URL}/api/categories`)
-    // const res = await fetch(`${API_URL}/api/products`)
     const sliderRes = await fetch(`${API_URL}/api/sliders`)
 
     const categories = await response.json()
-    // const products = await res.json()
     const sliders = await sliderRes.json()
-
-    // console.log(products)
 
     return {
         // props: { categories, products: products.slice(0, 6), sliders },

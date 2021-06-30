@@ -5,7 +5,7 @@ import SearchHeader from "./modules/SearchHeader"
 import HeaderActions from "./modules/HeaderActions"
 import NavigationMenu from "../navigation/NavigationMenu"
 import TopHeader from "./common/TopHeader"
-import { stickyHeader } from "utilities/common-helpers"
+import { stickyHeader } from "@/common/sticky-header"
 
 export default function Header() {
     const router = useRouter()
@@ -25,12 +25,12 @@ export default function Header() {
             {/* Middle Header */}
             <div className="bg-white">
                 <div className="container py-2.5">
-                    <div className="flex justify-between items-center">
+                    <div className="flex justify-between items-center space-x-10">
                         {/* Logo */}
                         <Logo />
 
                         {/* Search Form */}
-                        <SearchHeader className="w-1/2 px-10" />
+                        <SearchHeader className="w-1/2 px-10 flex-1" />
 
                         {/* Header Action */}
                         <HeaderActions />

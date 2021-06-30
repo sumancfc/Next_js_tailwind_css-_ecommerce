@@ -1,20 +1,32 @@
-import { SearchIcon } from "@heroicons/react/outline"
+import SearchForm from "@/components/elements/search/SearchForm"
+import SearchList from "@/components/elements/search/SearchList"
+import router from "next/router"
+import { useState } from "react"
 
-export default function SearchHeader({ className }) {
+export default function SearchHeader() {
+    const [keyword, setKeyword] = useState("")
+    const [searchPanel, setSearchPanel] = useState(false)
+
+    const handleSearch = (e) => {
+        if (e.target.value !== "") {
+            setKeyword(e.target.value)
+            setSearchPanel(true)
+        } else {
+            setSearchPanel(false)
+            setKeyword("")
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        router.push(`/search?keyword=${keyword}`)
+    }
+
     return (
-        <div className={className}>
-            <form className="flex items-center">
-                <input
-                    type="search"
-                    className="form"
-                    type="text"
-                    placeholder="I'm shopping for ..."
-                    required
-                />
-                <button type="submit" className="bg-main-blue h-10 focus:outline-none">
-                    <SearchIcon className="h-6 w-16 text-white" />
-                </button>
-            </form>
+        <div className="w-full relative">
+            <SearchForm keyword={keyword} handleSearch={handleSearch} handleSubmit={handleSubmit} />
+
+            <SearchList searchPanel={searchPanel} />
         </div>
     )
 }

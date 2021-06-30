@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { HeartIcon, StarIcon } from "@heroicons/react/outline"
-import { BACKEND_URL } from "@/config/index"
+import { PRODUCT_API_URL } from "@/config/index"
 
 export default function Product({ products }) {
     // console.log(products)
@@ -20,7 +20,7 @@ export default function Product({ products }) {
                                         loading="lazy"
                                         src={
                                             product.media.length > 0
-                                                ? `${BACKEND_URL}${product.media[0]}`
+                                                ? `${PRODUCT_API_URL}${product.media[0]}`
                                                 : "/images/products/dummy.jpg"
                                         }
                                         width={300}

@@ -64,7 +64,7 @@ export default function HomePage({ categories, products, sliders }) {
                 </div>
             </div>
 
-            <SectionLayout title="Shop By Category" url="/categories">
+            <SectionLayout title="Shop By Category" url="categories">
                 <Category categories={categories} className="mt-5" />
             </SectionLayout>
 
@@ -74,7 +74,7 @@ export default function HomePage({ categories, products, sliders }) {
                 <Banner banners={banners} />
             </SectionLayout>
 
-            <SectionLayout title="Kirana Pasal" url="/categories/kirana-pasal">
+            <SectionLayout title="Kirana Pasal" url="categories/kirana-pasal">
                 <CategorySlider categories={categories} categoryId="1" />
             </SectionLayout>
 
@@ -82,7 +82,7 @@ export default function HomePage({ categories, products, sliders }) {
                 <FeaturedBanner banners={features} />
             </SectionLayout>
 
-            <SectionLayout title="Office Items" url="/categories/office-item">
+            <SectionLayout title="Office Items" url="categories/office-item">
                 <CategorySlider categories={categories} categoryId="3" />
             </SectionLayout>
 

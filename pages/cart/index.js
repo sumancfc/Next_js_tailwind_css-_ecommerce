@@ -2,8 +2,9 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useSelector, useDispatch } from "react-redux"
-import { TrashIcon } from "@heroicons/react/outline"
-import { BACKEND_URL } from "@/config/index"
+import { toast } from "react-toastify"
+import { TrashIcon, ShoppingCartIcon } from "@heroicons/react/outline"
+import { PRODUCT_API_URL } from "@/config/index"
 import {
     addToCart,
     cartItemStock,
@@ -11,7 +12,6 @@ import {
     deleteAllFromCart,
     deleteFromCart,
 } from "redux/actions/cartActions"
-import { toast } from "react-toastify"
 import Layout from "@/components/layout"
 
 const CartPage = () => {
@@ -64,7 +64,7 @@ const CartPage = () => {
                                                             <Image
                                                                 src={
                                                                     cartItem.media.length > 0
-                                                                        ? `${BACKEND_URL}${cartItem.media[0]}`
+                                                                        ? `${PRODUCT_API_URL}${cartItem.media[0]}`
                                                                         : "/images/products/dummy.jpg"
                                                                 }
                                                                 alt={cartItem.title}
@@ -86,7 +86,7 @@ const CartPage = () => {
                                                             <Image
                                                                 src={
                                                                     cartItem.media.length > 0
-                                                                        ? `${BACKEND_URL}${cartItem.media[0]}`
+                                                                        ? `${PRODUCT_API_URL}${cartItem.media[0]}`
                                                                         : "/images/products/dummy.jpg"
                                                                 }
                                                                 alt={cartItem.title}
@@ -147,7 +147,7 @@ const CartPage = () => {
                                                         </div>
                                                         <button className="focus:outline-none">
                                                             <TrashIcon
-                                                                   className="h-5 hover:text-main-red"
+                                                                className="h-5 hover:text-main-red"
                                                                 onClick={() =>
                                                                     deleteCartItem(cartItem)
                                                                 }
@@ -200,7 +200,7 @@ const CartPage = () => {
 
                                                     <button className="focus:outline-none">
                                                         <TrashIcon
-                                                         className="h-5 hover:text-main-red"
+                                                            className="h-5 hover:text-main-red"
                                                             onClick={() => deleteCartItem(cartItem)}
                                                         />
                                                     </button>
@@ -215,24 +215,24 @@ const CartPage = () => {
                         </div>
 
                         <div className="mt-5 flex justify-between text-center">
-                        <Link  href="/shop">
-                    <a className="p-3 bg-main-btn text-white text-xs sm:text-sm font-medium tracking-wide focus:outline-none mr-2">
-                        Continue Shopping
-                    </a>
-                    </Link>
-                            <button onClick={() => removeAllFromCart()} className="p-3 bg-main-btn text-white text-xs sm:text-sm font-medium tracking-wide focus:outline-non">Remove All</button>
+                            <Link href="/shop">
+                                <a className="p-3 bg-main-btn text-white text-xs sm:text-sm font-medium tracking-wide focus:outline-none mr-2">
+                                    Continue Shopping
+                                </a>
+                            </Link>
+                            <button
+                                onClick={() => removeAllFromCart()}
+                                className="p-3 bg-main-btn text-white text-xs sm:text-sm font-medium tracking-wide focus:outline-non"
+                            >
+                                Remove All
+                            </button>
                         </div>
                     </div>
                 </div>
             ) : (
                 <div className="bg-white">
                     <div className="container max-w-sm py-10 text-center">
-                        <img
-                            loading="lazy"
-                            src="/images/icons/cart.png"
-                            alt="Cart Image"
-                            className="w-1/2 object-cover mx-auto"
-                        />
+                        <ShoppingCartIcon className="h-24 mx-auto text-main-blue" />
                         <h1 className="mt-4">No items found in Cart.</h1>
                         <Link href="/shop">
                             <a className="mt-4 bg-main-blue py-3 block w-1/2 mx-auto text-white text-sm tracking-wide uppercase rounded-sm">
