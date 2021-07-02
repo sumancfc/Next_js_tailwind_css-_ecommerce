@@ -1,5 +1,10 @@
 import UserDashboard from "@/components/layout/UserDashboard"
+import OrderItem from "@/components/pages/orders/OrderItem"
 
 export default function OrdersPage() {
-    return <UserDashboard title="Dashboard">Hello From Orders Page</UserDashboard>
+    return (
+        <UserDashboard pageTitle="Orders">
+            <OrderItem />
+        </UserDashboard>
+    )
 }

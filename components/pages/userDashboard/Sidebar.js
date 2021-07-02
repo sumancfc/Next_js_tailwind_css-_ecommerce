@@ -31,6 +31,7 @@ const navItems = [
     },
     {
         title: "Logout",
+        url: "/account/login",
         icon: "LogoutIcon",
     },
 ]

@@ -3,7 +3,7 @@ import Welcome from "@/components/pages/userDashboard/Welcome"
 
 export default function DashbaordPage() {
     return (
-        <UserDashboard title="Dashboard">
+        <UserDashboard pageTitle="Dashboard">
             <Welcome />
         </UserDashboard>
     )

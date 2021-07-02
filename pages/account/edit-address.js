@@ -25,7 +25,7 @@ export default function EditAddressPage() {
     }
 
     return (
-        <UserDashboard title="Edit Address">
+        <UserDashboard pageTitle="Edit Address">
             <Address
                 address={address}
                 setAddress={setAddress}

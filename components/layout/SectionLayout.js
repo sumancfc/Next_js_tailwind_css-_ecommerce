@@ -1,4 +1,4 @@
-import SectionTitle from "../elements/title/SectionTitle"
+import { SectionTitle } from "../elements/title/Title"
 
 export default function SectionLayout({ title, url, children }) {
     return (

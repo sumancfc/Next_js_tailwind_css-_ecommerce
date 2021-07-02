@@ -10,7 +10,7 @@ export default function AddressPage() {
 
     const dispatch = useDispatch()
     return (
-        <UserDashboard title="Address">
+        <UserDashboard pageTitle="Address">
             <div>
                 <h2 className="text-lg sm:text-2xl font-semibold">Shipping Address</h2>
                 <div className="mt-4 space-y-1">
