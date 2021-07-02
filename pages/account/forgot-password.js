@@ -1,13 +1,12 @@
 import { useState } from "react"
 import { useRouter } from "next/router"
 import PhoneInput from "react-phone-input-2"
-
+import { toast } from "react-toastify"
 import Layout from "@/components/layout"
 import "react-phone-input-2/lib/style.css"
 import styles from "../../styles/react-input.module.css"
-import { toast } from "react-toastify"
 
-export default function RegisterPage() {
+export default function ForgotPasswordPage() {
     const [phone, setPhone] = useState("")
     const [code, setCode] = useState("")
     const [password, setPassword] = useState("")
@@ -41,7 +40,6 @@ export default function RegisterPage() {
             <div className="container my-10 w-full max-w-max md:max-w-4xl">
                 <div className="flex flex-col md:flex-row md:items-center p-8 bg-white shadow-md md:space-x-10">
                     <div className="order-2 md:order-1 flex-1 mt-5 md:mt-0">
-                        {/* <h1 className="text-lg md:text-4xl font-bold">Register</h1> */}
                         <div className="mt-5">
                             <form
                                 onSubmit={
@@ -61,9 +59,7 @@ export default function RegisterPage() {
                                             containerClass={styles.form_container}
                                             buttonClass={styles.flag_dropdown}
                                         />
-                                        <button className="py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                            Get OTP
-                                        </button>
+                                        <button className="btn-bhotahiti">Get OTP</button>
                                     </div>
                                 ) : step === 2 ? (
                                     <div className="space-y-6">
@@ -87,9 +83,7 @@ export default function RegisterPage() {
                                             placeholder="Enter OTP"
                                             required
                                         />
-                                        <button className="py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                            Verify Otp
-                                        </button>
+                                        <button className="btn-bhotahiti">Verify Otp</button>
                                     </div>
                                 ) : (
                                     <div className="space-y-6">
@@ -122,9 +116,7 @@ export default function RegisterPage() {
                                             placeholder="Enter Password"
                                             required
                                         />
-                                        <button className="py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                            Reset Password
-                                        </button>
+                                        <button className="btn-bhotahiti">Reset Password</button>
                                     </div>
                                 )}
                             </form>

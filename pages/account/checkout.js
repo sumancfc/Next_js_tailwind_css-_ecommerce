@@ -1,9 +1,8 @@
-import Layout from "@/components/layout"
 import { useState } from "react"
 import Link from "next/link"
-import PhoneInput from "react-phone-input-2"
-import "react-phone-input-2/lib/style.css"
-import styles from "../../styles/react-input.module.css"
+import { useRouter } from "next/router"
+import Layout from "@/components/layout"
+import Login from "@/components/pages/login"
 
 export default function CheckoutPage() {
     const [phone, setPhone] = useState("")
@@ -11,6 +10,21 @@ export default function CheckoutPage() {
     const [loading, setLoading] = useState(false)
     const [showlogin, setShowlogin] = useState(false)
     const [showdiscount, setShowdiscount] = useState(false)
+
+    const router = useRouter()
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault()
+        try {
+            setLoading(true)
+            console.table({ phone, password })
+            // router.push("/")
+            setPhone("+977")
+            setPassword("")
+        } catch (err) {
+            setLoading(false)
+        }
+    }
 
     return (
         <Layout pageTitle="Checkout Page">
@@ -32,47 +46,14 @@ export default function CheckoutPage() {
 
                                     {showlogin && (
                                         <div className="mt-5 transition-all duration-300 ease-in-out">
-                                            <form>
-                                                <div>
-                                                    <PhoneInput
-                                                        country={"np"}
-                                                        onlyCountries={["de", "np", "us", "au"]}
-                                                        value={phone}
-                                                        onChange={(phone) => setPhone(phone)}
-                                                        masks={{ np: "(...) ..-..-..." }}
-                                                        inputClass={styles.form_input}
-                                                        placeholder="+977-9860088834"
-                                                        containerClass={styles.form_container}
-                                                        buttonClass={styles.flag_dropdown}
-                                                    />
-
-                                                    <input
-                                                        className="form-input mt-5"
-                                                        type="password"
-                                                        value={password}
-                                                        onChange={(e) =>
-                                                            setPassword(e.target.value)
-                                                        }
-                                                        placeholder="Enter Your Password"
-                                                        required
-                                                    />
-
-                                                    <Link href="/account/forgot-password">
-                                                        <a className="mt-2 block text-right text-sm hover:text-main-red">
-                                                            Forgot Password?
-                                                        </a>
-                                                    </Link>
-                                                    <button className="mt-3 block py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                                        {loading ? (
-                                                            <p className="animate-spin">
-                                                                <CogIcon className="h-5" />
-                                                            </p>
-                                                        ) : (
-                                                            <p>Login</p>
-                                                        )}
-                                                    </button>
-                                                </div>
-                                            </form>
+                                            <Login
+                                                phone={phone}
+                                                password={password}
+                                                loading={loading}
+                                                setPhone={setPhone}
+                                                setPassword={setPassword}
+                                                onSubmitHandler={onSubmitHandler}
+                                            />
                                         </div>
                                     )}
                                 </div>
@@ -98,7 +79,7 @@ export default function CheckoutPage() {
                                                         required
                                                     />
 
-                                                    <button className="block h-12 ml-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
+                                                    <button className="btn-bhotahiti h-12 ml-2 leading-0">
                                                         {loading ? (
                                                             <p className="animate-spin">
                                                                 <CogIcon className="h-5" />

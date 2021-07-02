@@ -8,17 +8,17 @@ export default function RegisterPage() {
     const [step, setStep] = useState(1)
     const [values, setValues] = useState({
         name: "",
-        phone: "",
         code: "",
         password: "",
         confirmPassword: "",
         loading: false,
         error: "",
     })
+    const [phone, setPhone] = useState("")
 
     const router = useRouter()
 
-    const { name, phone, code, password, loading, error } = values
+    const { name, code, password, loading, error } = values
 
     const onContinueSubmit = (e) => {
         e.preventDefault()
@@ -49,6 +49,7 @@ export default function RegisterPage() {
                 <FormNameAndNumber
                     name={name}
                     phone={phone}
+                    setPhone={setPhone}
                     handleChange={handleChange}
                     onContinueSubmit={onContinueSubmit}
                 />

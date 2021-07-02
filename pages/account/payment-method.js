@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Layout from "@/components/layout"
 import { savePaymentMethod } from "redux/actions/cartActions"
 import CheckoutSteps from "@/components/controls/CheckoutSteps"
+import { Title } from "@/components/elements/title/Title"
 
 export default function PaymentMethodPage() {
     const cart = useSelector((state) => state.cartData)
@@ -26,12 +27,12 @@ export default function PaymentMethodPage() {
     }
 
     return (
-        <Layout pageTitle="Shipping">
+        <Layout pageTitle="Payment Method">
             <div className=" w-full relative">
                 <div className="container my-10 w-full max-w-max md:max-w-4xl">
                     <div className="p-4 sm:p-8 bg-white shadow-md">
                         <CheckoutSteps step1 step2 step3 />
-                        <h1 className="text-xl sm:text-3xl font-bold">Payment Method</h1>
+                        <Title title="Payment Method" />
                         <div className="mt-5">
                             <form onSubmit={submitHandler}>
                                 <div className="space-y-4 flex flex-col">
@@ -84,9 +85,7 @@ export default function PaymentMethodPage() {
                                         <span className="ml-4">IME</span>
                                     </label>
                                 </div>
-                                <button className="mt-3 block py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                    Continue Payment
-                                </button>
+                                <button className="btn-bhotahiti mt-5">Continue Payment</button>
                             </form>
                         </div>
                     </div>

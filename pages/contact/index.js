@@ -122,7 +122,7 @@ export default function ContactPage({ contacts }) {
                                 </div>
 
                                 <Button
-                                    className="btn bg-main-red hover:bg-main-blue text-sm transition duration-300 ease-in-out"
+                                    className="btn-bhotahiti"
                                     type="submit"
                                     ariaLabel="button"
                                     title="Submit"

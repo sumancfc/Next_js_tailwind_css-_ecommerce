@@ -1,12 +1,10 @@
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import PhoneInput from "react-phone-input-2"
-import { CogIcon } from "@heroicons/react/outline"
 import Layout from "@/components/layout"
 import Logo from "@/components/elements/logo"
-import "react-phone-input-2/lib/style.css"
-import styles from "../../styles/react-input.module.css"
+import { Title } from "@/components/elements/title/Title"
+import Login from "@/components/pages/login"
 
 export default function LoginPage() {
     const [phone, setPhone] = useState("")
@@ -33,47 +31,17 @@ export default function LoginPage() {
             <div className="container my-10 w-full max-w-max md:max-w-4xl">
                 <div className="flex flex-col md:flex-row md:items-center p-8 bg-white shadow-md md:space-x-10">
                     <div className="order-2 md:order-1 flex-1 mt-5 md:mt-0">
-                        <h1 className="text-lg md:text-4xl font-bold">Login</h1>
+                        <Title title="Login" />
                         <div className="mt-5">
-                            <form onSubmit={onSubmitHandler}>
-                                <div className="">
-                                    <PhoneInput
-                                        country={"np"}
-                                        onlyCountries={["de", "np", "us", "au"]}
-                                        value={phone}
-                                        onChange={(phone) => setPhone(phone)}
-                                        masks={{ np: "(...) ..-..-..." }}
-                                        inputClass={styles.form_input}
-                                        placeholder="+977-9860088834"
-                                        containerClass={styles.form_container}
-                                        buttonClass={styles.flag_dropdown}
-                                    />
+                            <Login
+                                phone={phone}
+                                password={password}
+                                loading={loading}
+                                setPhone={setPhone}
+                                setPassword={setPassword}
+                                onSubmitHandler={onSubmitHandler}
+                            />
 
-                                    <input
-                                        className="form-input mt-5"
-                                        type="password"
-                                        value={password}
-                                        onChange={(e) => setPassword(e.target.value)}
-                                        placeholder="Enter Your Password"
-                                        required
-                                    />
-
-                                    <Link href="/account/forgot-password">
-                                        <a className="mt-2 block text-right hover:text-main-red">
-                                            Forgot Password?
-                                        </a>
-                                    </Link>
-                                    <button className="mt-3 block py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                        {loading ? (
-                                            <p className="animate-spin">
-                                                <CogIcon className="h-5" />
-                                            </p>
-                                        ) : (
-                                            <p>Login</p>
-                                        )}
-                                    </button>
-                                </div>
-                            </form>
                             <div className="mt-4">
                                 <p>
                                     Don't have an account?

@@ -1,10 +1,10 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Logo({ image, width, height, alt }) {
+export default function Logo({ className, image, width, height, alt }) {
     return (
         <Link href="/">
-            <a className="w-1/2">
+            <a className={`w-1/2 ${className}`}>
                 <Image
                     loading="lazy"
                     src={image}

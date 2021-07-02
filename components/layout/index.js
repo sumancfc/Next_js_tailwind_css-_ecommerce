@@ -34,7 +34,7 @@ export default function Layout({ pageTitle, parentTitle, title, keywords, descri
             <NavigationMobile />
             {/* <PanelMenu /> */}
 
-            {router.pathname !== "/" && <Breadcrumb parent={parentTitle} breadcrumb={pageTitle} />}
+            {router.pathname !== "/" && <Breadcrumb parent={parentTitle} child={pageTitle} />}
 
             {children}
 

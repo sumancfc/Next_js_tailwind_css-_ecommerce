@@ -1,14 +1,24 @@
 import Link from "next/link"
+import PhoneInput from "react-phone-input-2"
 import Layout from "@/components/layout"
 import Logo from "@/components/elements/logo"
+import "react-phone-input-2/lib/style.css"
+import styles from "../../../styles/react-input.module.css"
+import {Title} from "@/components/elements/title/Title"
 
-export default function FormNameAndNumber({ name, phone, handleChange, onContinueSubmit }) {
+export default function FormNameAndNumber({
+    name,
+    phone,
+    setPhone,
+    handleChange,
+    onContinueSubmit,
+}) {
     return (
         <Layout pageTitle="Register">
             <div className="container my-10 w-full max-w-max md:max-w-4xl">
                 <div className="flex flex-col md:flex-row md:items-center p-8 bg-white shadow-md md:space-x-10">
                     <div className="order-2 md:order-1 flex-1 mt-5 md:mt-0">
-                        <h1 className="text-lg md:text-4xl font-bold">Register</h1>
+                        <Title title="register" />
                         <div className="mt-5">
                             <form onSubmit={onContinueSubmit}>
                                 <div className="space-y-6">
@@ -22,18 +32,19 @@ export default function FormNameAndNumber({ name, phone, handleChange, onContinu
                                         required
                                     />
 
-                                    <input
-                                        className="form-input"
-                                        type="number"
-                                        name="phone"
+                                    <PhoneInput
+                                        country={"np"}
+                                        onlyCountries={["de", "np", "us", "au"]}
                                         value={phone}
-                                        onChange={handleChange("phone")}
-                                        placeholder="Enter Your Phone"
+                                        onChange={(phone) => setPhone(phone)}
+                                        masks={{ np: "(...) ..-..-..." }}
+                                        inputClass={styles.form_input}
+                                        placeholder="+977-9860088834"
+                                        containerClass={styles.form_container}
+                                        buttonClass={styles.flag_dropdown}
                                         required
                                     />
-                                    <button className="py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                        Continue
-                                    </button>
+                                    <button className="btn-bhotahiti">Continue</button>
                                 </div>
                             </form>
                             <div className="mt-4">

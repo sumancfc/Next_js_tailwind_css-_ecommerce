@@ -91,9 +91,7 @@ export default function SpecialDiscountPage({}) {
                                             rows="5"
                                         ></textarea>
 
-                                        <button className="py-3 px-4 bg-main-btn text-white rounded focus:outline-none hover:bg-main-blue">
-                                            Submit
-                                        </button>
+                                        <button className="btn-bhotahiti">Submit</button>
                                     </div>
                                 </form>
                             </div>

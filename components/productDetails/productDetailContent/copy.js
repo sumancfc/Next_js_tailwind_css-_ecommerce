@@ -95,144 +95,27 @@ function ProductDetailContentCopy({ product }) {
                     </p>
                 )}
                 {/* Product Variation */}
-                <ul>
+                <ul className="space-y-3">
                     {confKeys && confKeys.length
-                        ? confKeys.map((key) => {
+                        ? confKeys.map((key, i) => {
                               return (
-                                  <li>
-                                      <label>{key}</label>{" "}
-                                      {conf[key].map((c) => (
+                                  <li key={i}>
+                                      <label>{key}: </label>
+                                      {conf[key].map((c, i) => (
                                           <button
-                                              disabled={c.isAvailable ? "none" : "disabled"}
+                                              key={i}
+                                              //   disabled={c.isAvailable ? "none" : "disabled"}
                                               onClick={() => handleCombinationhange(key, c.title)}
+                                              className="px-3 border border-main-red ml-2"
                                           >
-                                              {c.title}
+                                              {c.isAvailable === true && c.title}
                                           </button>
-                                      ))}{" "}
+                                      ))}
                                   </li>
                               )
                           })
                         : null}
                 </ul>
-                {variation ? (
-                    <div className="flex">
-                        <div className="space-y-4">
-                            {variation.levelName.map((single, i) => {
-                                const level = variation.levelName.filter(
-                                    (s) => s.id === single.id
-                                )[0]
-
-                                const checkId = level.values.map((cId) => cId.id)
-
-                                // console.log("values id checked", checkId)
-                                const id = level.id
-                                const title = level.title
-                                // console.log("this is id", id)
-                                return (
-                                    <div className="flex flex-col" key={i}>
-                                        <div className="flex items-center">
-                                            <p>{level.title}:</p>
-                                            {/* <p>{checkId}</p> */}
-
-                                            <div className="flex">
-                                                {variation.combination.map((combine, i) => {
-                                                    // console.log("this is combine", combine)
-                                                    const comb = variation.combination.filter(
-                                                        (s) => s._id === combine._id
-                                                    )[0]
-
-                                                    const values = Object.values(combine.conf)
-                                                    const keys = Object.keys(combine.conf)
-
-                                                    // const list = keys.map((key) => key.id)
-                                                    // const key = keys.filter(
-                                                    //     (item, index) =>
-                                                    //         keys.indexOf(item) === index
-                                                    // )
-
-                                                    // console.log("This is keys", key)
-                                                    // const value = Object.values(values)
-                                                    // console.log(value)
-
-                                                    return (
-                                                        <div>
-                                                            {values.map((val, i) => {
-                                                                const key = keys.filter(
-                                                                    (item, index) =>
-                                                                        keys.indexOf(item) === index
-                                                                )
-                                                                const value = val.title
-
-                                                                // const value = values.filter(
-                                                                //     (item, index) =>
-                                                                //         keys.indexOf(item) === index
-                                                                // )[0]
-                                                                // console.log("This is key", key)
-                                                                // value.findIndex(Color)
-                                                                return (
-                                                                    <div className="" key={i}>
-                                                                        {id === key && (
-                                                                            <div>{value}</div>
-                                                                        )}
-                                                                    </div>
-                                                                )
-                                                            })}
-                                                        </div>
-                                                    )
-                                                })}
-                                            </div>
-                                        </div>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        {/* <div className="flex">
-                            {variation.combination.map((combine, i) => {
-                                console.log("this is combine", combine)
-                                const comb = variation.combination.filter(
-                                    (s) => s._id === combine._id
-                                )[0]
-
-                                // console.log("Combine", comb)
-                                // const checkLevel = comb.conf.filter(
-                                //     (chId) => chId._id === checkId
-                                // )[0]
-
-                                const values = Object.values(combine.conf)
-                                const keys = Object.keys(combine.conf)
-
-                                // console.log(values)
-                                // const value = Object.values(values)
-                                // console.log(value)
-                                const price = combine.price.filter((pri) => pri.price.NRS)
-                                console.log("this is price", price.NRS)
-
-                                return (
-                                    <div>
-                                        {keys}
-                                        {values.map((value, i) => {
-                                            console.log(value)
-                                            // value.findIndex(Color)
-                                            return (
-                                                <div className="" key={i}>
-                                                    {value.title}
-                                                </div>
-                                            )
-                                        })}
-                                        {combine.map((com, i) => {
-                                            return <div key={i}>{com.title}</div>
-                                        })} 
-                                         {combine.price.map((pri, i) => {
-                                            return <div>{pri.price.NRS}</div>
-                                        })}
-                                    </div>
-                                )
-                            })}
-                        </div> */}
-                    </div>
-                ) : (
-                    ""
-                )}
 
                 {/* minimum order qunantity */}
                 <p>
