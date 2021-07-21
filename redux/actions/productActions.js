@@ -11,7 +11,9 @@ export const getAllProducts = () => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_LIST_REQUEST })
 
-        const res = await fetch(`${API_URL}/api/products`)
+        const res = await fetch(`${PRODUCT_API_URL}/products/products`)
+
+        console.log(res)
 
         const data = await res.json()
 

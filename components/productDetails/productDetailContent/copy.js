@@ -21,8 +21,6 @@ function ProductDetailContentCopy({ product }) {
         isOrderSampleOpt,
     } = product
 
-    console.log(product)
-
     const [conf, setConf] = useState({})
 
     console.log("This is variation combibation", variation)
@@ -76,6 +74,7 @@ function ProductDetailContentCopy({ product }) {
             <div className="space-y-2">
                 {/* Product Title */}
                 <h1 className="text-2xl font-medium">{capitalizeFirstLetter(title)}</h1>
+
                 {/* Product Rating */}
 
                 <p>No Review Yet</p>
