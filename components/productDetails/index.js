@@ -3,7 +3,7 @@ import ProductDetailsOne from "./productDetailContent/ProductDetailsOne"
 import ProductDetailTab from "./productDetailTab"
 import ProductGrid from "../shop/ProductGrid"
 import ProductDetailContentCopy from "./productDetailContent/copy"
-import SectionTitle from "../elements/title/SectionTitle"
+import { SectionTitle } from "../elements/title/Title"
 
 export default function ProductDetails({ product }) {
     // console.log(product)

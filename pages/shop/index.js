@@ -20,7 +20,6 @@ export default function ShopPage({ products }) {
 
 export async function getStaticProps() {
     const response = await fetch(`${API_URL}/api/products`)
-
     const products = await response.json()
 
     return {

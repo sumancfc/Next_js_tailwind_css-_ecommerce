@@ -129,7 +129,7 @@
 
     .btn-bhotahiti {
         transition: all 0.5s ease-in-out 0s;
-        @apply relative inline-block bg-main-btn py-4 px-8 text-white font-semibold z-10 tracking-wide uppercase border-none cursor-pointer rounded-md focus:outline-none;
+        @apply relative inline-block bg-main-btn py-4 px-8 text-white font-semibold tracking-wide uppercase border-none cursor-pointer rounded-md focus:outline-none;
     }
 
     .variation-input {

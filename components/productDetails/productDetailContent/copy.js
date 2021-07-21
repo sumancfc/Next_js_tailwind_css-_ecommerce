@@ -21,6 +21,8 @@ function ProductDetailContentCopy({ product }) {
         isOrderSampleOpt,
     } = product
 
+    console.log(product)
+
     const [conf, setConf] = useState({})
 
     console.log("This is variation combibation", variation)

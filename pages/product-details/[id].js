@@ -18,10 +18,17 @@ function ProductDetaisPage({ product }) {
 
 export async function getServerSideProps({ query: { id } }) {
     //api with backend
-    const response = await fetch(`${PRODUCT_API_URL}/api/products/${id}`)
+
+    // const response = await fetch(`${PRODUCT_API_URL}/products/products/${id}`)
+    const response = await fetch(
+        `http://139.59.53.101/api/admin/products/products/60f01dc5128c4994a74630cc`
+    )
+    console.log(response)
     const product = await response.json()
 
     if (!product) return { notFound: true }
+
+    console.log(product)
 
     // console.log(product)
     // const response = await fetch(`${API_URL}/api/products/${id}`)

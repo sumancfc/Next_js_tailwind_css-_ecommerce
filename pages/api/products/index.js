@@ -2,7 +2,7 @@ import { PRODUCT_API_URL } from "@/config/index"
 
 export default async (req, res) => {
     if (req.method === "GET") {
-        const response = await fetch(`${PRODUCT_API_URL}/api/products`)
+        const response = await fetch(`${PRODUCT_API_URL}/products/products`)
 
         const products = await response.json()
 

@@ -1,128 +1,258 @@
 {
     "products": [
         {
-            "id": "1",
-            "sku": "asdf123",
-            "name": "lorem ipsum jacket",
-            "slug": "lorem-ipsum",
-            "reviewCount": 10,
-            "price": 12.45,
-            "discount": 10,
-            "offerEnd": "October 5, 2020 12:11:00",
-            "new": false,
-            "rating": 4,
-            "saleCount": 54,
-            "minOrder": 3,
-            "category": ["clothes", "office-item"],
-            "tag": ["fashion", "men", "jacket", "full sleeve"],
-            "variation": [
+            "categories": [
                 {
-                    "color": "white",
-                    "image": "/assets/img/product/fashion/1.jpg",
-                    "size": [
-                        {
-                            "name": "x",
-                            "stock": 8
-                        },
-                        {
-                            "name": "m",
-                            "stock": 3
-                        },
-                        {
-                            "name": "xl",
-                            "stock": 5
-                        }
-                    ]
+                    "_id": "60caf2e0c18a51010cb2a151",
+                    "title": "Electronics",
+                    "image": "/public/media/categories/image-1623913184661.webp",
+                    "slug": "electronics-5a466a41"
                 },
                 {
-                    "color": "black",
-                    "image": "/assets/img/product/fashion/8.jpg",
-                    "size": [
-                        {
-                            "name": "x",
-                            "stock": 20
-                        },
-                        {
-                            "name": "m",
-                            "stock": 16
-                        },
-                        {
-                            "name": "xl",
-                            "stock": 18
-                        },
-                        {
-                            "name": "xxl",
-                            "stock": 20
-                        }
-                    ]
-                },
-                {
-                    "color": "brown",
-                    "image": "/assets/img/product/fashion/3.jpg",
-                    "size": [
-                        {
-                            "name": "x",
-                            "stock": 31
-                        },
-                        {
-                            "name": "m",
-                            "stock": 42
-                        },
-                        {
-                            "name": "xl",
-                            "stock": 54
-                        },
-                        {
-                            "name": "xxl",
-                            "stock": 60
-                        }
-                    ]
-                },
-                {
-                    "color": "yellow",
-                    "image": "/assets/img/product/fashion/3.jpg",
-                    "size": [
-                        {
-                            "name": "x",
-                            "stock": 71
-                        }
-                    ]
+                    "_id": "60d59ff1c76887a95c5907cd",
+                    "title": "Mobile",
+                    "slug": "mobile-2b013a0e"
                 }
             ],
-            "thumbnail": "/images/products/9.jpg",
-            "images": [
-                "/images/products/dummy.jpg",
-                "/images/products/11.jpg",
-                "/images/products/9.jpg",
-                "/images/products/10.jpg"
+            "isBulkBuyOpt": true,
+            "isOrderSampleOpt": false,
+            "isGenuine": true,
+            "isLocal": false,
+            "media": [
+                "/public/media/products/media-1624612185627.webp",
+                "/public/media/products/media-1624612185619.webp"
             ],
-            "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-            "fullDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
-        },
-        {
-            "id": "2",
-            "sku": "asdf131",
-            "name": "Lorem ipsum fashion female top",
-            "slug": "hello-world",
-            "price": 35.6,
-            "discount": 0,
-            "new": false,
-            "rating": 4,
-            "saleCount": 95,
-            "minOrder": 0,
-            "category": ["fashion", "women"],
-            "tag": ["fashion", "women", "top", "sleeveless"],
-            "stock": 35,
-            "affiliateLink": "//www.amazon.com",
-            "thumbnail": "/images/products/10.jpg",
-            "images": [
-                "/images/products/dummy.jpg",
-                "/images/products/11.jpg",
-                "/images/products/9.jpg",
-                "/images/products/10.jpg"
+            "tags": [],
+            "_id": "60d59d5ac76887a95c5907cb",
+            "title": "APPLE 100",
+            "description": "Apple inc",
+            "brand": {
+                "_id": "60d31dbdb224d2ffdeee907c",
+                "title": "Apple",
+                "image": "/public/media/brands/image-1624448445220.webp",
+                "slug": "apple-099f2043"
+            },
+            "productType": "hardware",
+            "minOrder": 10,
+            "backOrder": true,
+            "reorderLevel": true,
+            "createdAt": "2021-06-25T09:09:46.762Z",
+            "updatedAt": "2021-06-28T06:06:23.580Z",
+            "slug": "apple-100-24debccb",
+            "__v": 0,
+            "price": [
+                {
+                    "quantity": {
+                        "from": 0,
+                        "to": 1
+                    },
+                    "_id": "60d966dfa7bd4831c48e6c92",
+                    "price": {
+                        "NRS": "5000",
+                        "USD": "99"
+                    }
+                }
             ],
-            "shortDescription": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.",
-            "fullDescription": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            "variation": {
+                "levelName": [
+                    {
+                        "values": [
+                            {
+                                "_id": "60d2c3b7636be73993efeb3a",
+                                "value": "#00000",
+                                "title": "Black"
+                            },
+                            {
+                                "_id": "60d2c3b7636be73993efeb3b",
+                                "title": "White",
+                                "value": "#ffffff"
+                            }
+                        ],
+                        "title": "Color",
+                        "id": "60d2c3b7636be73993efeb39"
+                    },
+                    {
+                        "values": [
+                            {
+                                "_id": "60cacaf78290a98c6cc15d10",
+                                "title": "1 GB",
+                                "value": "Dolorum aliquam rem "
+                            },
+                            {
+                                "_id": "60cedb067549044608a9fd04",
+                                "title": "2 GB",
+                                "value": "#00000"
+                            },
+                            {
+                                "_id": "60cedebf7549044608a9fd05",
+                                "title": "4 GB"
+                            }
+                        ],
+                        "title": "RAM",
+                        "id": "60cacaf78290a98c6cc15d0f"
+                    },
+                    {
+                        "values": [
+                            {
+                                "_id": "60cedeeb7549044608a9fd07",
+                                "value": "",
+                                "title": "32 GB"
+                            },
+                            {
+                                "_id": "60cedeeb7549044608a9fd08",
+                                "title": "64 GB"
+                            },
+                            {
+                                "_id": "60cedeeb7549044608a9fd09",
+                                "title": "128 GB"
+                            }
+                        ],
+                        "title": "ROM",
+                        "id": "60cedeeb7549044608a9fd06"
+                    },
+                    {
+                        "values": [
+                            {
+                                "_id": "60d59c84c76887a95c5907c0",
+                                "title": "13MP",
+                                "value": ""
+                            },
+                            {
+                                "_id": "60d59c84c76887a95c5907c1",
+                                "title": "20MP"
+                            },
+                            {
+                                "_id": "60d59c84c76887a95c5907c2",
+                                "title": "64MP"
+                            },
+                            {
+                                "_id": "60d59f10c76887a95c5907cc",
+                                "title": "120MP"
+                            }
+                        ],
+                        "title": "Camera",
+                        "id": "60d59c84c76887a95c5907bf"
+                    }
+                ],
+                "combination": [
+                    {
+                        "_id": "60d59d5ac76887a95c5907c4",
+                        "title": "Iphone Black [2GB 32GB]",
+                        "sku": "",
+                        "conf": {
+                            "Color": {
+                                "_id": "60d2c3b7636be73993efeb3a",
+                                "value": "#00000",
+                                "title": "Black"
+                            },
+                            "RAM": {
+                                "_id": "60cedb067549044608a9fd04",
+                                "title": "2 GB",
+                                "value": "#00000"
+                            },
+                            "ROM": {
+                                "_id": "60cedeeb7549044608a9fd07",
+                                "value": "",
+                                "title": "32 GB"
+                            },
+                            "Camera": {
+                                "_id": "60d59c84c76887a95c5907c2",
+                                "title": "64MP"
+                            }
+                        },
+                        "price": [
+                            {
+                                "quantity": {
+                                    "from": 0,
+                                    "to": 1
+                                },
+                                "_id": "60d59d5ac76887a95c5907c5",
+                                "price": {
+                                    "NRS": "100000",
+                                    "USD": "1000"
+                                }
+                            },
+                            {
+                                "quantity": {
+                                    "from": 2,
+                                    "to": 10
+                                },
+                                "_id": "60d59d5ac76887a95c5907c6",
+                                "price": {
+                                    "NRS": "90000",
+                                    "USD": "900"
+                                }
+                            },
+                            {
+                                "quantity": {
+                                    "from": 11,
+                                    "to": 19
+                                },
+                                "_id": "60d59d5ac76887a95c5907c7",
+                                "price": {
+                                    "NRS": "80000",
+                                    "USD": "800"
+                                }
+                            }
+                        ],
+                        "stock": 4,
+                        "cp": 44
+                    },
+                    {
+                        "_id": "60d59d5ac76887a95c5907c8",
+                        "title": "Iphone Black [4GB 128GB]",
+                        "sku": "",
+                        "conf": {
+                            "Color": {
+                                "_id": "60d2c3b7636be73993efeb3b",
+                                "title": "White",
+                                "value": "#ffffff"
+                            },
+                            "RAM": {
+                                "_id": "60cedebf7549044608a9fd05",
+                                "title": "4 GB"
+                            },
+                            "ROM": {
+                                "_id": "60cedeeb7549044608a9fd09",
+                                "title": "128 GB"
+                            },
+                            "Camera": {
+                                "_id": "60d59c84c76887a95c5907c2",
+                                "title": "64MP"
+                            }
+                        },
+                        "price": [
+                            {
+                                "quantity": {
+                                    "from": 0,
+                                    "to": 1
+                                },
+                                "_id": "60d59d5ac76887a95c5907c9",
+                                "price": {
+                                    "NRS": "120000",
+                                    "USD": "1200"
+                                }
+                            },
+                            {
+                                "quantity": {
+                                    "from": 2,
+                                    "to": 3
+                                },
+                                "_id": "60d59d5ac76887a95c5907ca",
+                                "price": {
+                                    "NRS": "100000",
+                                    "USD": "1000"
+                                }
+                            }
+                        ],
+                        "stock": 6,
+                        "cp": 44600
+                    }
+                ],
+                "createdAt": "2021-06-25T09:09:46.371Z",
+                "updatedAt": "2021-06-28T06:06:23.244Z",
+                "id": "60d59d5ac76887a95c5907c3"
+            }
         }
     ]
 }
