@@ -86,6 +86,7 @@ function ProductDetailContentCopy({ product }) {
                         </a>
                     </Link>
                 </div>
+
                 {/* Is Genuine and Local */}
                 {isGenuine && (
                     <p className="flex">
@@ -95,6 +96,7 @@ function ProductDetailContentCopy({ product }) {
                         </span>
                     </p>
                 )}
+
                 {/* Product Variation */}
                 <ul className="space-y-3">
                     {confKeys && confKeys.length
@@ -105,11 +107,16 @@ function ProductDetailContentCopy({ product }) {
                                       {conf[key].map((c, i) => (
                                           <button
                                               key={i}
-                                              //   disabled={c.isAvailable ? "none" : "disabled"}
+                                              //   disabled={
+                                              //       c.isAvailable === true ? "none" : "disabled"
+                                              //   }
                                               onClick={() => handleCombinationhange(key, c.title)}
                                               className="px-3 border border-main-red ml-2"
                                           >
-                                              {c.isAvailable === true && c.title}
+                                              {(c.isAvailable === true && c.title) ||
+                                                  (c.isAvailable === false && (
+                                                      <span disabled>{c.title}</span>
+                                                  ))}
                                           </button>
                                       ))}
                                   </li>

@@ -13,7 +13,7 @@ export const getAllProducts = () => async (dispatch) => {
 
         const res = await fetch(`${PRODUCT_API_URL}/products/products`)
 
-        console.log(res)
+        // console.log(res)
 
         const data = await res.json()
 

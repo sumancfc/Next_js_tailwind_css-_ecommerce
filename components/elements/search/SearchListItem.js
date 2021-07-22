@@ -1,7 +1,7 @@
 import { StarIcon } from "@heroicons/react/outline"
 import Link from "next/link"
 
-export default function SearchListItem() {
+export default function SearchListItem({ product }) {
     return (
         <>
             <article className="p-3 flex space-x-4">
@@ -20,7 +20,7 @@ export default function SearchListItem() {
                 <div className="min-w-0 relative flex-auto sm:pr-20 lg:pr-0 xl:pr-20">
                     <Link href="">
                         <a className="text-sm md:text-lg font-medium md:font-semibold text-black mb-0.5">
-                            Hank’s Juiciest Beef Burger
+                            {product.title}
                         </a>
                     </Link>
                     <dl className="flex flex-wrap text-sm font-medium whitespace-pre">
@@ -34,7 +34,7 @@ export default function SearchListItem() {
 
                         <div className="flex-none w-full mt-0.5 font-normal">
                             <dt className="inline">By</dt>{" "}
-                            <dd className="inline text-black">Himalaya</dd>
+                            <dd className="inline text-black">{product.brand}</dd>
                         </div>
                         <div className="absolute top-0 right-0 rounded-full bg-amber-50 text-amber-900 px-2 py-0.5 hidden sm:flex lg:hidden xl:flex items-center space-x-1">
                             <dt className="text-amber-500">

@@ -7,38 +7,38 @@ import { getAllProducts } from "redux/actions/productActions"
 
 export default function SearchHeader() {
     const dispatch = useDispatch()
-    const productLists = useSelector((state) => state.productLists)
-    const { products } = productLists
 
     const [keyword, setKeyword] = useState("")
-    const [searchProduct, setSearchProduct] = useState(products)
+    const [searchProducts, setSearchProducts] = useState([])
+    const [searchResults, setSearchResults] = useState([])
     const [searchPanel, setSearchPanel] = useState(false)
 
     useEffect(() => {
-        dispatch(getAllProducts())
-    }, [dispatch])
-
-    console.log(searchProduct)
-
-    const searchByProductName = (keyword, object) => {
-        let matches = []
-        let regexp = new RegExp(keyword.toLowerCase(), "g")
-
-        object.forEach((product) => {
-            if (product.title.toLowerCase().match(regexp)) matches.push(product)
+        dispatch(getAllProducts()).then((data) => {
+            setSearchProducts(data)
         })
-        return matches
-    }
+    }, [dispatch, setSearchProducts])
 
-    const handleSearch = (e) => {
-        if (e.target.value !== "") {
-            setKeyword(e.target.value)
+    console.log(searchProducts)
+
+    const handleSearch = (keyword) => {
+        setKeyword(keyword)
+        console.log(keyword)
+        if (keyword !== "") {
             setSearchPanel(true)
-            setSearchProduct: searchByProductName(e.target.value, products)
+
+            const productLists = searchProducts.filter((product) => {
+                return Object.values(product)
+                    .join(" ")
+                    .toLowerCase()
+                    .includes(keyword.toLowerCase())
+            })
+
+            setSearchResults(productLists)
         } else {
             setSearchPanel(false)
-            setKeyword("")
-            setSearchProduct([])
+
+            setSearchResults(searchProducts)
         }
     }
 
@@ -51,7 +51,10 @@ export default function SearchHeader() {
         <div className="w-full relative">
             <SearchForm keyword={keyword} handleSearch={handleSearch} handleSubmit={handleSubmit} />
 
-            <SearchList searchPanel={searchPanel} />
+            <SearchList
+                searchPanel={searchPanel}
+                products={keyword.length < 1 ? searchProducts : searchResults}
+            />
         </div>
     )
 }
