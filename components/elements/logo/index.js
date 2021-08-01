@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function Logo({ className, image, width, height, alt }) {
     return (
         <Link href="/">
-            <a className={`w-1/2 ${className}`}>
+            <a className={`w-full ${className}`}>
                 <Image
                     loading="lazy"
                     src={image}
